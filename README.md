@@ -1,18 +1,20 @@
-# ARC9 BOCW Shotguns DLC
+# ARC9 BOCW Tactical Rifles
 
-2 more BOCW Shotguns on the base [ARC9](https://github.com/HaodongMo/ARC-9)
+4 BOCW Tactical Rifles on the base [ARC9](https://github.com/HaodongMo/ARC-9)
 
-Cold War consists 2 more shotguns added after launch. Here they are.
+Here we go again. Tactical rifles went pretty much under my radar so this should be good. Four weapons in which one is very popular around here.
 
 ## You need to have [Shared Content](https://github.com/multinettt/ARC-9_BOCW_Shared_Content) in order to avoid missing textures, materials and sounds.
 
 ## [BOCW Attachments](https://github.com/multinettt/ARC-9_BOCW_Attachments)
 
 ## Weapons List:
-### Shotguns DLC:
+### Tactical Rifles:
 
-- Streetsweeper (Penn Arms Striker-12)
-- .410 Ironhide (Henry Lever Action)
+- Type 63
+- M16 (M16A2)
+- AUG
+- DMR 14 (M14)
 
 ## Personalization:
 
