@@ -700,24 +700,38 @@ SWEP.Attachments = {
         InstalledElements = {"stockgone"},
     },
     {
-        PrintName = "SOUND",
-        Bone = "tag_barrel",
-        Pos = Vector(0, 0, 0),
-        Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(6, 0, 0),
-        Category = {"bocw_type63_sound"},
-        CosmeticOnly = true,
-    },
-    {
-        PrintName = "Cosmetic",
-        DefaultCompactName = "CAMO",
+        PrintName = "CAMO",
         DefaultIcon = Material("arc9/def_att_icons/skin.png"),
-        Bone = "tag_weapon",
-        Pos = Vector(3, 0, -1),
-        Ang = Angle(0, 0, 0),
         Category = {"universal_camo"},
         CosmeticOnly = true,
     },
+    {
+        PrintName = "STICKER 1",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_type63_sticker1.mdl",
+        CosmeticOnly = true,
+    },
+    {
+        PrintName = "STICKER 2",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_type63_sticker2.mdl",
+        CosmeticOnly = true,
+    },
+    {
+        PrintName = "STICKER 3",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_type63_sticker3.mdl",
+        CosmeticOnly = true,
+    },
+    --[[ --until DuplicateStickerModels become a thing sticker 4 is unavailable for dualmag weapons.
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_type63_sticker4.mdl",
+        CosmeticOnly = true,
+    }, 
+    ]]
 }
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
@@ -797,9 +811,9 @@ SWEP.Animations = {
     ["ready"] = {
         Source = {"ready"},
         EventTable = {
-            { s = "ARC9_BOCW.Type63_boltback", t = 0.3 },
+            { s = "ARC9_BOCW.Type63_boltback", t = 0.2 },
             { s = "ARC9_BOCW.Type63_boltrelease", t = 0.5 },
-            { s = "ARC9_BOCW.Type63_reload_end", t = 0.8 },
+            { s = "ARC9_BOCW.Type63_reload_end", t = 1 },
         },
         IKTimeLine = {
             {
