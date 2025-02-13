@@ -353,9 +353,9 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.ReloadTimeMult = 0.65
 
-ATT.MultAimDownSightsTime = 0.75
+ATT.AimDownSightsTimeMult = 1.25
 
-ATT.ActivateElements = {"type63_mag_mixpro"}
+ATT.ActivateElements = {"type63_mag_mix"}
 
 ARC9.LoadAttachment(ATT, "bocw_type63_magazine_mixpro")
 --========== HANDLE ===================
@@ -427,7 +427,7 @@ ARC9.LoadAttachment(ATT, "bocw_type63_handle_fieldtape")
 ATT = {}
 
 ATT.PrintName = "Spetsnaz Field Grip" --// 4
-ATT.CompactName = "SPTZ GRP"
+ATT.CompactName = "SPTSNZ GRIP"
 ATT.Icon = Material("entities/bocw_atts/handles/type63_spetsnaz.png", "mips smooth")
 ATT.Description = [[Makeshift combination of fabric tape and rubber bands to improve aiming speed and flinch stability.
 
@@ -437,7 +437,7 @@ ATT.SortOrder = 4
 
 ATT.Category = "bocw_type63_wrap"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_type63_handle_spetsnaz.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_type63_handle_spetsnazfield.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -452,7 +452,7 @@ ARC9.LoadAttachment(ATT, "bocw_type63_handle_spetsnaz")
 ATT = {}
 
 ATT.PrintName = "Serpent Wrap" --// 5
-ATT.CompactName = "SRPNT WRP"
+ATT.CompactName = "SRPNT WRAP"
 ATT.Icon = Material("entities/bocw_atts/handles/type63_serpent.png", "mips smooth")
 ATT.Description = [[Duct tape with an adhesive coating ensures a firm grip to improve aiming speed.
 
@@ -487,7 +487,7 @@ ATT.SortOrder = 6
 
 ATT.Category = "bocw_type63_wrap"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_type63_handle_airborne.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_type63_handle_gruelastic.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -544,6 +544,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SprintToFireTimeMult = 0.9
 
+ATT.ActivateElements = {"stockgone"}
+
 ARC9.LoadAttachment(ATT, "bocw_type63_stock_wire")
 
 ATT = {}
@@ -591,6 +593,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.SprintToFireTimeMult = 0.6
 
 ATT.SpreadMultHipFire = 1.15
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_type63_stock_nostock")
 
@@ -2592,7 +2596,7 @@ ATT.Model = "models/weapons/arc9/atts/bocw_type63_muzzle.mdl"
 
 ATT.Category = {"bocw_type63_muzzle"}
 
-ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelOffset = Vector(-0.08, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.MuzzleParticleOverride = "muzzleflash_3"
