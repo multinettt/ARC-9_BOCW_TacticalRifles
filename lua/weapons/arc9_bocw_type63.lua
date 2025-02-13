@@ -29,14 +29,14 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - Black Ops Cold War"
-SWEP.SubCategory = "Assault Rifles"
+SWEP.SubCategory = "Tactical Rifles"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = "Type 63"
 SWEP.TrueName = "Type 63"
 SWEP.Class = "Tactical Rifle"
 SWEP.Trivia = {
-    Manufacturer = "Factory 296"
+    Manufacturer = "Factory 296",
     Calibre = "7.62x39mm",
     Mechanism = "Gas-operated rotating bolt",
     Country = "China",
@@ -180,6 +180,7 @@ SWEP.Firemodes = {
     },
     {
         Mode = -1,
+        RPM = 750
     }
 }
 
@@ -390,7 +391,7 @@ SWEP.CustomBlendFactor = nil
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(0, -1.6, 0),
+    Pos = Vector(0, -6, 0),
     Ang = Angle(0, 0, 0),
     Magnification = 1.4,
     Blur = true,
@@ -412,7 +413,7 @@ SWEP.CrouchAng = Angle(0, 0, -10)
 SWEP.RestPos = Vector(0, -1.2, 0)
 SWEP.RestAng = Angle(0, 0, 0)
 
-SWEP.SprintPos = Vector(0, -1.2, 0)
+SWEP.SprintPos = Vector(0, -4, 0)
 SWEP.SprintAng = Angle(0, 0, 0)
 
 SWEP.HolsterPos = Vector(0, 0, -5)
@@ -425,7 +426,7 @@ SWEP.SightMidPoint = {
 
 -- Position for customizing
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(15, 40, 4)
+SWEP.CustomizePos = Vector(20, 45, 3)
 SWEP.CustomizeRotateAnchor = Vector(17, 0, -5)
 
 SWEP.CustomizeSnapshotFOV = 70
@@ -480,7 +481,6 @@ SWEP.AttachmentElements = {
     ["optic_mount"] = {
         Bodygroups = {
             {3, 1},
-            {7, 1},
         }
     },
     ["foregrip_mount"] = {
@@ -617,7 +617,7 @@ SWEP.Attachments = {
     {
         PrintName = "OPTIC", -- print name
         Bone = "tag_weapon",
-        Pos = Vector(4, 0, 5.01),
+        Pos = Vector(4, 0, 3.28),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0.5),
         Category = {"optic_picatinny"},
@@ -687,15 +687,15 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-0.25, 0, -0.25),
+        Icon_Offset = Vector(-0.25, 0, 0),
         Category = {"bocw_type63_wrap"},
     },
     {
         PrintName = "STOCK",
-        Bone = "tag_stock",
+        Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, 0),
+        Icon_Offset = Vector(-2, 0, -0.5),
         Category = {"bocw_type63_stock"},
         InstalledElements = {"stockgone"},
     },
@@ -850,11 +850,10 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "reload",
         NoMagSwap = true,
-        MinProgress = 0.55,
+        MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
-            { s = "ARC9_BOCW.Type63_reload_magout", t = 0.35 },
-            { s = "ARC9_BOCW.Type63_reload_maginstart", t = 0.9 },
+            { s = "ARC9_BOCW.Type63_reload_magout", t = 0.4 },
             { s = "ARC9_BOCW.Type63_reload_magin", t = 1.1 },
             { s = "ARC9_BOCW.Type63_reload_end", t = 1.8 },
             { hide = 1, t = 0 },
@@ -887,16 +886,15 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload_empty",
-        MinProgress = 0.4,
+        MinProgress = 0.5,
         DropMagAt = 0.6,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
-            { s = "ARC9_BOCW.Type63_reload_empty_magout", t = 0.2 },
-            { s = "ARC9_BOCW.Type63_reload_maginstart", t = 0.8 },
-            { s = "ARC9_BOCW.Type63_reload_empty_magin", t = 0.9 },
-            { s = "ARC9_BOCW.Type63_boltback", t = 1.8 },
-            { s = "ARC9_BOCW.Type63_boltrelease", t = 2 },
-            { s = "ARC9_BOCW.Type63_reload_end", t = 2.35 },
+            { s = "ARC9_BOCW.Type63_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.Type63_reload_magin", t = 1.1 },
+            { s = "ARC9_BOCW.Type63_boltback", t = 2.1 },
+            { s = "ARC9_BOCW.Type63_boltrelease", t = 2.4 },
+            { s = "ARC9_BOCW.Type63_reload_end", t = 2.8 },
             { hide = 1, t = 0 },
             { hide = 0, t = 0.2 },
             { hide = 2, t = 1 },
@@ -1196,9 +1194,12 @@ SWEP.Animations = {
     },
     ["enter_inspect"] = {
         Source = "inspect",
-        Mult = 0.8,
         EventTable = {
-            { s = "ARC9_BOCW.Type63_inspect", t = 0 },
+            { s = "ARC9_BOCW.Type63_inspect_part1", t = 0 },
+            { s = "ARC9_BOCW.Type63_inspect_part2", t = 1.8 },
+            { s = "ARC9_BOCW.Type63_inspect_part3", t = 2.6 },
+            { s = "ARC9_BOCW.Type63_inspect_part4", t = 3.4 },
+            { s = "ARC9_BOCW.Type63_inspect_part5", t = 4.6 },
         },
         IKTimeLine = {
             {
@@ -1223,8 +1224,8 @@ SWEP.Animations = {
             },
         },
     },
-    ["enter_inspect_dual"] = {
-        Source = "inspect_dualmag",
+    ["enter_inspect_grip"] = {
+        Source = "inspect_grip",
         Mult = 0.8,
         EventTable = {
             { s = "ARC9_BOCW.Type63_inspect", t = 0 },
@@ -1247,34 +1248,6 @@ SWEP.Animations = {
             },
             {
                 t = 0.65,
-                lhik = 1,
-                rhik = 0
-            },
-        },
-    },
-    ["1_enter_inspect"] = {
-        Source = "inspect_furryfluid",
-        EventTable = {
-            { s = "ARC9_BOCW.Type63_inspect_furryfluid", t = 0 },
-        },
-        IKTimeLine = {
-            {
-                t = 0,
-                lhik = 1,
-                rhik = 0
-            },
-            {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.95,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 1,
                 lhik = 1,
                 rhik = 0
             },
