@@ -180,15 +180,17 @@ SWEP.Firemodes = {
     },
     {
         Mode = -1,
-        RPM = 750
+        RPM = 750,
+        RecoilAutoControl = 0.5,
+        RecoilUp = 2
     }
 }
 
 -------------------------- RECOIL
 
 SWEP.Recoil = 1
-SWEP.RecoilSide = 0.4
-SWEP.RecoilUp = 0.8
+SWEP.RecoilSide = 0.5
+SWEP.RecoilUp = 0.5
 
 SWEP.RecoilRandomUp = 0
 SWEP.RecoilRandomSide = 0
@@ -196,8 +198,8 @@ SWEP.RecoilRandomSide = 0
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.1 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.75
-SWEP.RecoilKick = 2
+SWEP.RecoilAutoControl = 4
+SWEP.RecoilKick = 4
 
 SWEP.Spread = math.rad(1.3 / 37.5)
 SWEP.SpreadMultRecoil = 1.2
@@ -208,12 +210,12 @@ SWEP.SpreadAddMove = math.rad(100 / 37.5)
 SWEP.SpreadAddMidAir = 0.1
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
 
-SWEP.RecoilPatternDrift = 4
+SWEP.RecoilPatternDrift = 10
 
 SWEP.UseVisualRecoil = true
 
 SWEP.VisualRecoil = 1
-SWEP.VisualRecoilMultSights = 0.5
+SWEP.VisualRecoilMultSights = 0.6
 
 SWEP.VisualRecoilUp = 0.25
 SWEP.VisualRecoilSide = -0.25
@@ -630,7 +632,7 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_type63_muzzle", "bocw_east_muzzle_545"},
+        Category = {"bocw_type63_muzzle", "bocw_east_muzzle", "bocw_east_muzzle_762"},
         Installed = "bocw_type63_muzzle_base",
     },
     {
@@ -778,12 +780,24 @@ SWEP.Animations = {
         Source = "ads_in",
         Time = 1,
     },
+    ["enter_sights_empty"] = {
+        Source = "ads_in_empty",
+        Time = 1,
+    },
     ["idle_sights"] = {
         Source = "idle",
         Time = 1,
     },
+    ["idle_sights_empty"] = {
+        Source = "idle_empty",
+        Time = 1,
+    },
     ["exit_sights"] = {
         Source = "ads_out",
+        Time = 1,
+    },
+    ["exit_sights_empty"] = {
+        Source = "ads_out_empty",
         Time = 1,
     },
     ["draw"] = {
@@ -838,6 +852,31 @@ SWEP.Animations = {
     },
     ["bash"] = {
         Source = "melee",
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.2,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.65,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.8,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["bash_empty"] = {
+        Source = "melee_empty",
         IKTimeLine = {
             {
                 t = 0,
