@@ -2606,3 +2606,77 @@ ATT.MuzzleDevice = true
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_type63_muzzle_base")
+
+ATT = {}
+
+ATT.PrintName = "AUG Muzzle Brake"
+ATT.CompactName = "MUZZLE"
+ATT.Icon = Material("entities/bocw_atts/muzzles/aug_muzzle.png", "mips smooth")
+ATT.Description = [[7.62x39mm Muzzle Brake]]
+
+ATT.SortOrder = -10
+
+ATT.Model = "models/weapons/arc9/atts/bocw_aug_muzzle.mdl"
+
+ATT.Category = {"bocw_aug_muzzle"}
+
+ATT.ModelOffset = Vector(-0.08, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MuzzleParticleOverride = "muzzleflash_3"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_aug_muzzle_base")
+
+--
+
+ATT = {}
+
+ATT.PrintName = "Swarovski Scope 1.5x"
+ATT.CompactName = "OPTIC"
+ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
+ATT.Description = [[Original AUG scope assembly.]]
+
+ATT.SortOrder = 3
+
+ATT.Model = "models/weapons/arc9/atts/bocw_scope_aug.mdl"
+
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Category = {"bocw_aug_optic"}
+
+ATT.Sights = {
+    {
+        Pos = Vector(0, 6.5, -1.103),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.5,
+    },
+    {
+        Pos = Vector(-0.1, 7, -1.85),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.4,
+        Disassociate = true
+    }
+}
+
+ATT.RTScopeAdjustable = false
+
+ATT.RTScope = true
+ATT.RTScopeSubmatIndex = 2
+ATT.RTScopeFOV = 8
+ATT.RTScopeReticle = Material("hud/arc9_bocw/scopes/reticle_aug.png", "mips smooth")
+ATT.RTScopeReticleScale = 1.5
+ATT.RTScopeColorable = true
+ATT.RTScopeShadowIntensity = 10
+
+ATT.ScopeScreenRatio = 0.5
+
+ATT.ModelOffset = Vector(0, 0, 0)
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_optic_aug")
