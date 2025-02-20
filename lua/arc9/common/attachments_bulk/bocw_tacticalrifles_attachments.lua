@@ -1645,7 +1645,7 @@ ATT.ReloadTimeMult = 0.65
 
 ATT.MultAimDownSightsTime = 0.75
 
-ATT.ActivateElements = {"aug_mag_mixpro"}
+ATT.ActivateElements = {"aug_mag_mix"}
 
 ARC9.LoadAttachment(ATT, "bocw_aug_magazine_mixpro")
 --========== HANDLE ===================
@@ -1826,7 +1826,7 @@ ATT.SortOrder = 1
 
 ATT.Category = "bocw_aug_stock"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_aug_stock_wire.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_aug_stock_marathon.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -1857,6 +1857,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SpeedMult = 1.05
 
+ATT.ActivateElements = {"stockgone"}
+
 ARC9.LoadAttachment(ATT, "bocw_aug_stock_duster")
 
 ATT = {}
@@ -1872,7 +1874,7 @@ ATT.SortOrder = 3
 
 ATT.Category = "bocw_aug_stock"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_aug_stock_nostock.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_aug_stock_cqb.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -1933,6 +1935,8 @@ ATT.SprintToFireTimeMult = 0.7
 ATT.SpeedMultSighted = 1.4
 
 ATT.SpreadMultHipFire = 1.3
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_aug_stock_raider")
 --========== DMR 14 ===========================================================
@@ -2620,7 +2624,7 @@ ATT.Model = "models/weapons/arc9/atts/bocw_aug_muzzle.mdl"
 
 ATT.Category = {"bocw_aug_muzzle"}
 
-ATT.ModelOffset = Vector(-0.08, 0, 0)
+ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.MuzzleParticleOverride = "muzzleflash_3"

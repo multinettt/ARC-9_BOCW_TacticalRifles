@@ -352,8 +352,37 @@ SWEP.BobSprintMult = 0.1
 -------------------------- VISUALS
 
 SWEP.BulletBones = { -- the bone that represents bullets in gun/mag
-    "tag_bullet_animate"
+    [1] = {"tag_bullet_deplete_sqtl_00_animate"},
+    [2] = {"tag_bullet_deplete_sqtl_01_animate", "tag_bullet_deplete_swap_01_animate"},
+    [3] = {"tag_bullet_deplete_sqtl_02_animate", "tag_bullet_deplete_swap_02_animate"},
+    [4] = {"tag_bullet_deplete_sqtl_03_animate", "tag_bullet_deplete_swap_03_animate"},
+    [5] = "",
+    [6] = {"tag_bullet_deplete_sqtl_04_animate", "tag_bullet_deplete_swap_04_animate"},
+    [7] = "",
+    [8] = {"tag_bullet_deplete_sqtl_05_animate", "tag_bullet_deplete_swap_05_animate"},
+    [9] = "",
+    [10] = {"tag_bullet_deplete_sqtl_06_animate", "tag_bullet_deplete_swap_06_animate"},
+    [11] = "",
+    [12] = {"tag_bullet_deplete_sqtl_07_animate", "tag_bullet_deplete_swap_07_animate"},
+    [13] = "",
+    [14] = {"tag_bullet_deplete_sqtl_08_animate", "tag_bullet_deplete_swap_08_animate"},
+    [15] = "",
+    [16] = {"tag_bullet_deplete_sqtl_09_animate", "tag_bullet_deplete_swap_09_animate"},
+    [17] = "",
+    [18] = {"tag_bullet_deplete_sqtl_10_animate", "tag_bullet_deplete_swap_10_animate"},
+    [19] = "",
+    [20] = {"tag_bullet_deplete_sqtl_11_animate", "tag_bullet_deplete_swap_11_animate"},
+    [21] = "",
+    [22] = {"tag_bullet_deplete_sqtl_12_animate", "tag_bullet_deplete_swap_12_animate"},
+    [23] = "",
+    [24] = {"tag_bullet_deplete_sqtl_13_animate", "tag_bullet_deplete_swap_13_animate"},
+    [25] = "",
+    [26] = {"tag_bullet_deplete_sqtl_14_animate", "tag_bullet_deplete_swap_14_animate"},
+    [27] = {"tag_bullet_deplete_sqtl_15_animate", "tag_bullet_deplete_swap_15_animate"},
 }
+
+SWEP.BulletBonesSub1 = true
+
 SWEP.CaseBones = {}
 -- Unlike BulletBones, these bones are determined by the missing bullet amount when reloading
 SWEP.StripperClipBones = {}
@@ -476,16 +505,23 @@ SWEP.AttachmentElements = {
     ["barrelgone"] = {
         Bodygroups = {
             {4, 1},
+            {5, 1}
         }
     },
     ["foregripmount"] = {
         Bodygroups = {
             {5, 1},
+            {6, 1},
         }
     },
     ["stockgone"] = {
         Bodygroups = {
-            {6, 1},
+            {7, 1},
+        }
+    },
+    ["aug_mag_ext"] = {
+        Bodygroups = {
+            {8, 1},
         }
     },
     ["bodymount_lasermixbody"] = {
@@ -501,57 +537,42 @@ SWEP.AttachmentElements = {
     ["barrel_rapidfire"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-8.61, 0, 0),
+                Pos = Vector(-2.86, 0, 0),
             },
         },
     },
     ["barrel_cavalry"] = {
-        Bodygroups = {
-            {6, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(-4.24, 0, 0),
+                Pos = Vector(-3.28, 0, 0),
             },
         },
     },
     ["barrel_striketeam"] = {
-        Bodygroups = {
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(-4.24, 0, 0),
+                Pos = Vector(-0.87, 0, 0),
             },
         },
     },
     ["barrel_matchgrade"] = {
-        Bodygroups = {
-            {6, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(0.08, 0, 0),
+                Pos = Vector(-1.56, 0, 0),
             }
         },
     },
     ["barrel_titanium"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-8.61, 0, 0),
+                Pos = Vector(-4.95, 0, 0),
             }
         },
     },
     ["barrel_taskforce"] = {
-        Bodygroups = {
-            {5, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(0.08, 0, 0),
+                Pos = Vector(-2.56, 0, 0),
             }
         },
     },
@@ -617,7 +638,7 @@ SWEP.Attachments = {
     {
         PrintName = "MUZZLE",
         Bone = "tag_muzzle",
-        Pos = Vector(-0.78, 0, 0),
+        Pos = Vector(-0.85, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_aug_muzzle", "bocw_xm4_muzzle"},
@@ -636,18 +657,18 @@ SWEP.Attachments = {
     {
         PrintName = "BODY",
         Bone = "tag_weapon",
-        Pos = Vector(17.5, 0.8, 2),
-        Ang = Angle(0, 0, -90),
+        Pos = Vector(4, 0.9, 3.1),
+        Ang = Angle(0, 0, -140),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_ak47_body_mix"},
+        Category = {"bocw_xm4_body"},
         InstalledElements = {"bodymount_lasermixbody"},
     },
     {
         Hidden = true,
         Bone = "tag_weapon",
-        Pos = Vector(19.5, 1.11, 2),
+        Pos = Vector(4.8, 1.2, 3.6),
         Ang = Angle(0, 0, 0),
-        Category = {"bocw_east_body", "bocw_ak47_body"},
+        Category = {"bocw_xm4_body_flash"},
         InstalledElements = {"bodymount_flashlight"},
         MergeSlots = {4,5}
     },
@@ -680,10 +701,10 @@ SWEP.Attachments = {
     },
     {
         PrintName = "STOCK",
-        Bone = "tag_stock",
+        Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, 0),
+        Icon_Offset = Vector(-12, 0, 3),
         Category = {"bocw_aug_stock"},
     },
     {
@@ -869,7 +890,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.75,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
@@ -882,7 +903,7 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload_empty",
-        MinProgress = 0.5,
+        MinProgress = 0.6,
         DropMagAt = 0.6,
         MagSwapTime = 1,
         EventTable = {
@@ -910,12 +931,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.5,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.6,
+                t = 0.95,
                 lhik = 1,
                 rhik = 0
             },
@@ -924,12 +945,13 @@ SWEP.Animations = {
     ["reload_ext"] = {
         Source = "reload_ext",
         Mult = 1,
-        MinProgress = 0.65,
+        MinProgress = 0.7,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
-            { s = "ARC9_BOCW.AUG_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 1.85 },
+            { s = "ARC9_BOCW.AUG_reload_ext_magout", t = 0.4 },
+            { s = "ARC9_BOCW.AUG_reload_maggrab", t = 0.9 },
+            { s = "ARC9_BOCW.AUG_reload_ext_magin", t = 1.8 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 2.6 },
             { hide = 1, t = 0 },
             { hide = 0, t = 0.2 },
             { hide = 2, t = 1.9 },
@@ -947,7 +969,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.75,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
@@ -960,20 +982,19 @@ SWEP.Animations = {
     },
     ["reload_empty_ext"] = {
         Source = "reload_ext_empty",
-        MinProgress = 0.4,
+        MinProgress = 0.6,
         MagSwapTime = 1,
         DropMagAt = 0.6,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
-            { s = "ARC9_BOCW.AUG_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_boltback", t = 2.1 },
-            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.4 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 2.8 },
+            { s = "ARC9_BOCW.AUG_reload_ext_magout", t = 0.4 },
+            { s = "ARC9_BOCW.AUG_reload_maggrab", t = 0.9 },
+            { s = "ARC9_BOCW.AUG_reload_ext_magin", t = 1.8 },
+            { s = "ARC9_BOCW.AUG_boltback", t = 2.7 },
+            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.85 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 3.3 },
             { hide = 1, t = 0 },
             { hide = 0, t = 0.2 },
-            -- duplicate attachments fucks this up, it hides both mags when the mag bone is hid
-            -- cant go further than this with the reloadhidebones, sorry. goes for rest of att mags
         },
         IKTimeLine = {
             {
@@ -987,12 +1008,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.5,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.6,
+                t = 0.95,
                 lhik = 1,
                 rhik = 0
             },
@@ -1000,12 +1021,12 @@ SWEP.Animations = {
     },
     ["reload_dual"] = {
         Source = "reload_dual",
-        MinProgress = 0.6,
+        MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
             { s = "ARC9_BOCW.AUG_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 1.8 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.5 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 2.5 },
             { hide = 1, t = 0 },
         },
         IKTimeLine = {
@@ -1037,8 +1058,8 @@ SWEP.Animations = {
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
             { s = "ARC9_BOCW.AUG_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 1.85 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.5 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 2.5 },
             { hide = 1, t = 0 },
         },
         IKTimeLine = {
@@ -1066,14 +1087,14 @@ SWEP.Animations = {
     },
     ["reload_empty_dual"] = {
         Source = "reload_dual_empty",
-        MinProgress = 0.5,
+        MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
-            { s = "ARC9_BOCW.AUG_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_boltback", t = 1.9 },
-            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.2 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 2.7 },
+            { s = "ARC9_BOCW.AUG_reload_dual_empty_boltback", t = 0.3 },
+            { s = "ARC9_BOCW.AUG_reload_magout", t = 1.1 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 2.2 },
+            { s = "ARC9_BOCW.AUG_reload_dual_empty_boltrelease", t = 3.2 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 3.7 },
             { hide = 1, t = 0 },
         },
         IKTimeLine = {
@@ -1088,12 +1109,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.55,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.6,
+                t = 0.95,
                 lhik = 1,
                 rhik = 0
             },
@@ -1101,15 +1122,15 @@ SWEP.Animations = {
     },
     ["1_reload_empty_dual"] = {
         Source = "reload_dual2_empty",
-        MinProgress = 0.5,
+        MinProgress = 0.65,
         DropMagAt = 1.1,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
-            { s = "ARC9_BOCW.AUG_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_boltback", t = 1.9 },
-            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.2 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 2.7 },
+            { s = "ARC9_BOCW.AUG_reload_dual_empty_boltback", t = 0.3 },
+            { s = "ARC9_BOCW.AUG_reload_magout", t = 1.1 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 2.2 },
+            { s = "ARC9_BOCW.AUG_reload_dual_empty_boltrelease", t = 3.2 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 3.7 },
             { hide = 1, t = 0 },
         },
         IKTimeLine = {
@@ -1124,12 +1145,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.55,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.6,
+                t = 0.95,
                 lhik = 1,
                 rhik = 0
             },
@@ -1137,13 +1158,14 @@ SWEP.Animations = {
     },
     ["reload_mix"] = {
         Source = "reload_mix",
-        Mult = 1,
-        MinProgress = 0.58,
+        Mult = 1.35,
+        MinProgress = 0.7,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
             { s = "ARC9_BOCW.AUG_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 1.8 },
+            { s = "ARC9_BOCW.AUG_reload_maggrab", t = 0.7 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.2 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 1.9 },
         },
         IKTimeLine = {
             {
@@ -1157,7 +1179,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.75,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
@@ -1170,16 +1192,17 @@ SWEP.Animations = {
     },
     ["reload_empty_mix"] = {
         Source = "reload_mix_empty",
-        Mult = 1,
-        MinProgress = 0.4,
+        Mult = 1.35,
+        MinProgress = 0.55,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
             { s = "ARC9_BOCW.AUG_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.AUG_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.AUG_boltback", t = 2.1 },
-            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.4 },
-            { s = "ARC9_BOCW.AUG_reload_end", t = 2.7 },
+            { s = "ARC9_BOCW.AUG_reload_maggrab", t = 0.7 },
+            { s = "ARC9_BOCW.AUG_reload_magin", t = 1.2 },
+            { s = "ARC9_BOCW.AUG_boltback", t = 2 },
+            { s = "ARC9_BOCW.AUG_boltrelease", t = 2.15 },
+            { s = "ARC9_BOCW.AUG_reload_end", t = 2.6 },
             { hide = 1, t = 0 },
             { hide = 0, t = 0.2 },
         },
@@ -1195,12 +1218,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.55,
+                t = 0.85,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.6,
+                t = 0.95,
                 lhik = 1,
                 rhik = 0
             },
@@ -1239,12 +1262,12 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.5,
+                t = 0.9,
                 lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.65,
+                t = 0.98,
                 lhik = 1,
                 rhik = 0
             },
@@ -1273,7 +1296,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.95,
+                t = 0.98,
                 lhik = 1,
                 rhik = 0
             },
