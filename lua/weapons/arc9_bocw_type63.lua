@@ -7,7 +7,7 @@
 --   SWEP INFORMATION:
 
 --   BASE  : ARC9
---   BUILD : v1.0
+--   BUILD : v2025.6
 --   SR.NO : 12460927
 
 
@@ -429,7 +429,7 @@ SWEP.SightMidPoint = {
 -- Position for customizing
 SWEP.CustomizeAng = Angle(90, 0, 0)
 SWEP.CustomizePos = Vector(20, 45, 3)
-SWEP.CustomizeRotateAnchor = Vector(17, 0, -5)
+SWEP.CustomizeRotateAnchor = Vector(20, 0, -5)
 
 SWEP.CustomizeSnapshotFOV = 70
 SWEP.CustomizeSnapshotPos = Vector(0, 20, 0)

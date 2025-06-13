@@ -2613,6 +2613,30 @@ ARC9.LoadAttachment(ATT, "bocw_type63_muzzle_base")
 
 ATT = {}
 
+ATT.PrintName = "M14 Muzzle Brake"
+ATT.CompactName = "M14 MUZZ"
+ATT.Icon = Material("entities/bocw_atts/muzzles/dmr14_muzzle.png", "mips smooth")
+ATT.Description = [[7.62x39mm Muzzle Brake]]
+
+ATT.SortOrder = -10
+
+ATT.Model = "models/weapons/arc9/atts/bocw_dmr14_muzzle.mdl"
+
+ATT.Category = {"bocw_dmr14_muzzle"}
+
+ATT.ModelOffset = Vector(-0.08, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MuzzleParticleOverride = "muzzleflash_6"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_dmr14_muzzle_base")
+
+ATT = {}
+
 ATT.PrintName = "AUG Muzzle Brake"
 ATT.CompactName = "MUZZLE"
 ATT.Icon = Material("entities/bocw_atts/muzzles/aug_muzzle.png", "mips smooth")
