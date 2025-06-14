@@ -575,17 +575,17 @@ sound.Add({
 -- INSPECT FOLEY
 
 sound.Add({
-    name = "ARC9_BOCW.DMR14_inspect1",
+    name = "ARC9_BOCW.DMR14_inspect_part1",
     channel = CHAN_ITEM,
     volume = 1.0,
-    sound = "weapons/arc9/bocw_dmr14/dmr14_inspect1.wav"
+    sound = "weapons/arc9/bocw_dmr14/dmr14_inspect_part1.wav"
 })
 
 sound.Add({
-    name = "ARC9_BOCW.DMR14_inspect2",
+    name = "ARC9_BOCW.DMR14_inspect_part2",
     channel = CHAN_ITEM,
     volume = 1.0,
-    sound = "weapons/arc9/bocw_dmr14/dmr14_inspect2.wav"
+    sound = "weapons/arc9/bocw_dmr14/dmr14_inspect_part2.wav"
 })
 
 -- PULLOUT PUTAWAY

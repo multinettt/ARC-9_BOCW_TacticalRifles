@@ -77,7 +77,7 @@ SWEP.ViewModelFOVBase = 70
 -------------------------- DAMAGE PROFILE
 
 SWEP.DamageMax = 58 -- Damage done at point blank range
-SWEP.DamageMin = 25 -- Damage done at maximum range
+SWEP.DamageMin = 50 -- Damage done at maximum range
 
 SWEP.DamageRand = 1 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 
@@ -242,7 +242,7 @@ SWEP.FreeAimRadiusSights = 0
 
 SWEP.SwayMultSights = 0.5
 
-SWEP.AimDownSightsTime = 0.350 -- How long it takes to go from hip fire to aiming down sights.
+SWEP.AimDownSightsTime = 0.325 -- How long it takes to go from hip fire to aiming down sights.
 SWEP.SprintToFireTime = 0.4 -- How long it takes to go from sprinting to being able to fire.
 
 SWEP.ShootWhileSprint = false
@@ -648,14 +648,13 @@ SWEP.Attachments = {
     {
         PrintName = "UNDRBARREL",
         Bone = "tag_weapon",
-        Pos = Vector(-4, -4.42, 5),
+        Pos = Vector(-6.1, -4.42, 5.16),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(20.25, 4.5, -5),
         Category = {"bocw_underbarrel_west"},
     },
     {
         PrintName = "MAGAZINE",
-        DefaultName = "20 Rnd",
         Bone = "tag_clip",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
@@ -723,7 +722,7 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
     local elements = swep:GetElements()
 
     if anim == "enter_inspect" then
-        if elements["bocw_underbarrel_east"] then
+        if elements["bocw_underbarrel_west"] then
             return anim .. "_grip"
         end
     end
@@ -738,7 +737,7 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
         return anim .. "_ext"
     end
 
-    if elements["dmr14_mag_dualmag"] then
+    if elements["dmr14_mag_dual"] then
         return anim .. "_dual"
     end
 
@@ -780,11 +779,11 @@ SWEP.Animations = {
         IKTimeLine = {
             {
                 t = 0,
-                lhik = 1,
+                lhik = 0,
                 rhik = 0
             },
             {
-                t = 0.4,
+                t = 1,
                 lhik = 1,
                 rhik = 0
             },
@@ -808,9 +807,8 @@ SWEP.Animations = {
     ["ready"] = {
         Source = {"ready"},
         EventTable = {
-            { s = "ARC9_BOCW.dmr14_boltback", t = 0.2 },
-            { s = "ARC9_BOCW.dmr14_boltrelease", t = 0.5 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 1 },
+            { s = "ARC9_BOCW.DMR14_readyboltback", t = 0.2 },
+            { s = "ARC9_BOCW.DMR14_readyboltrelease", t = 0.5 },
         },
         IKTimeLine = {
             {
@@ -890,9 +888,9 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "reload",
         NoMagSwap = true,
-        MinProgress = 1.5,
+        MinProgress = 0.7,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_magout", t = 0.36 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
             { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
             { s = "ARC9_BOCW.DMR14_reload_end", t = 1.95 },
         },
@@ -921,15 +919,15 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload_empty",
+        Time = 3.5,
         MinProgress = 0.5,
         DropMagAt = 0.6,
-        MinProgress = 2,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
             { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
-            { s = "ARC9_BOCW.DMR14_boltback", t = 2.22 },
-            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.4 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.4 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.5 },
         },
         IKTimeLine = {
             {
@@ -943,7 +941,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.5,
+                t = 0.55,
                 lhik = 0,
                 rhik = 0
             },
@@ -956,12 +954,12 @@ SWEP.Animations = {
     },
     ["reload_ext"] = {
         Source = "reload_ext",
-        Mult = 1,
-        MinProgress = 1.5,
+        Mult = 0.75,
+        MinProgress = 0.5,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_magout", t = 0.36 },
-            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
-            { s = "ARC9_BOCW.DMR14_reload_end", t = 1.9 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.5 },
+            { s = "ARC9_BOCW.DMR14_reload_end", t = 2.6 },
         },
         IKTimeLine = {
             {
@@ -988,20 +986,15 @@ SWEP.Animations = {
     },
     ["reload_empty_ext"] = {
         Source = "reload_ext_empty",
+        Mult = 0.74,
         MinProgress = 0.4,
         MagSwapTime = 1,
         DropMagAt = 0.6,
         EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.dmr14_reload_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_boltback", t = 2.1 },
-            { s = "ARC9_BOCW.dmr14_boltrelease", t = 2.4 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 2.8 },
-            { hide = 1, t = 0 },
-            { hide = 0, t = 0.2 },
-            -- duplicate attachments fucks this up, it hides both mags when the mag bone is hid
-            -- cant go further than this with the reloadhidebones, sorry. goes for rest of att mags
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.5 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 3.15 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 3.3 },
         },
         IKTimeLine = {
             {
@@ -1026,152 +1019,14 @@ SWEP.Animations = {
             },
         },
     },
-    ["reload_dual"] = {
-        Source = "reload_dual",
-        MinProgress = 0.6,
-        EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 1.8 },
-            { hide = 1, t = 0 },
-        },
-        IKTimeLine = {
-            {
-                t = 0,
-                lhik = 1,
-                rhik = 0
-            },
-            {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.75,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.9,
-                lhik = 1,
-                rhik = 0
-            },
-        },
-    },
-    ["1_reload_dual"] = {
-        Source = "reload_dual2",
-        MinProgress = 0.65,
-        EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 1.85 },
-            { hide = 1, t = 0 },
-        },
-        IKTimeLine = {
-            {
-                t = 0,
-                lhik = 1,
-                rhik = 0
-            },
-            {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.75,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.9,
-                lhik = 1,
-                rhik = 0
-            },
-        },
-    },
-    ["reload_empty_dual"] = {
-        Source = "reload_dual_empty",
-        MinProgress = 0.5,
-        EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_boltback", t = 1.9 },
-            { s = "ARC9_BOCW.dmr14_boltrelease", t = 2.2 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 2.7 },
-            { hide = 1, t = 0 },
-        },
-        IKTimeLine = {
-            {
-                t = 0,
-                lhik = 1,
-                rhik = 0
-            },
-            {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.55,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.6,
-                lhik = 1,
-                rhik = 0
-            },
-        },
-    },
-    ["1_reload_empty_dual"] = {
-        Source = "reload_dual2_empty",
-        MinProgress = 0.5,
-        DropMagAt = 1.1,
-        EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_boltback", t = 1.9 },
-            { s = "ARC9_BOCW.dmr14_boltrelease", t = 2.2 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 2.7 },
-            { hide = 1, t = 0 },
-        },
-        IKTimeLine = {
-            {
-                t = 0,
-                lhik = 1,
-                rhik = 0
-            },
-            {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.55,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.6,
-                lhik = 1,
-                rhik = 0
-            },
-        },
-    },
     ["reload_mix"] = {
         Source = "reload_mix",
         Mult = 1,
-        MinProgress = 0.58,
+        MinProgress = 0.5,
         EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 1.8 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_reload_end", t = 1.95 },
         },
         IKTimeLine = {
             {
@@ -1198,18 +1053,145 @@ SWEP.Animations = {
     },
     ["reload_empty_mix"] = {
         Source = "reload_mix_empty",
-        Mult = 1,
+        Mult = 1.1,
         MinProgress = 0.4,
         MagSwapTime = 1,
         EventTable = {
-            { s = "ARC9_BOCW.dmr14_reload_start", t = 0 },
-            { s = "ARC9_BOCW.dmr14_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.dmr14_reload_dual_magin", t = 1.1 },
-            { s = "ARC9_BOCW.dmr14_boltback", t = 2.1 },
-            { s = "ARC9_BOCW.dmr14_boltrelease", t = 2.4 },
-            { s = "ARC9_BOCW.dmr14_reload_end", t = 2.7 },
-            { hide = 1, t = 0 },
-            { hide = 0, t = 0.2 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.1 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.2 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.3 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.55,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["reload_dual"] = {
+        Source = "reload_dual",
+        Time = 2.5,
+        MinProgress = 0.6,
+        EventTable = {
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_reload_end", t = 2 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["1_reload_dual"] = {
+        Source = "reload_dual2",
+        Time = 2.5,
+        MinProgress = 0.65,
+        EventTable = {
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_reload_end", t = 2 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["reload_empty_dual"] = {
+        Source = "reload_dual_empty",
+        Time = 3.5,
+        MinProgress = 0.5,
+        EventTable = {
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.5 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.6 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.55,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["1_reload_empty_dual"] = {
+        Source = "reload_dual2_empty",
+        Time = 3.5,
+        MinProgress = 0.5,
+        DropMagAt = 1.1,
+        EventTable = {
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.5 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.6 },
         },
         IKTimeLine = {
             {
@@ -1251,9 +1233,10 @@ SWEP.Animations = {
     },
     ["enter_inspect"] = {
         Source = "inspect",
+        Time = 6,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_inspect1", t = 0 },
-            { s = "ARC9_BOCW.DMR14_inspect2", t = 4.5 },
+            { s = "ARC9_BOCW.DMR14_inspect_part1", t = 0 },
+            { s = "ARC9_BOCW.DMR14_inspect_part2", t = 4.2 },
         },
         IKTimeLine = {
             {
@@ -1262,17 +1245,7 @@ SWEP.Animations = {
                 rhik = 0
             },
             {
-                t = 0.1,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.5,
-                lhik = 0,
-                rhik = 0
-            },
-            {
-                t = 0.65,
+                t = 1,
                 lhik = 1,
                 rhik = 0
             },
@@ -1280,9 +1253,10 @@ SWEP.Animations = {
     },
     ["enter_inspect_grip"] = {
         Source = "inspect_grip",
+        Time = 6,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_inspect1", t = 0 },
-            { s = "ARC9_BOCW.DMR14_inspect2", t = 4.5 },
+            { s = "ARC9_BOCW.DMR14_inspect_part1", t = 0 },
+            { s = "ARC9_BOCW.DMR14_inspect_part2", t = 4.2 },
         },
         IKTimeLine = {
             {
