@@ -1,13 +1,13 @@
 --=============================================================================
---   CALL OF DUTY: BLACK OPS COLD WAR
+--   ARC9 CALL OF DUTY: BLACK OPS COLD WAR
+--   TACTICAL RIFLES
 --   M16
---   LUA - MAIN
 --=============================================================================
 --[[
 --   SWEP INFORMATION:
 
---   BASE  : ARC-9
---   BUILD : v0.1
+--   BASE  : ARC9
+--   BUILD : v2025.7
 --   SR.NO : 133108
 
 
@@ -18,8 +18,8 @@ ooo        ooooo   .o      .ooo
  8  `888'   888   888  Y88[   ]88 
  8    Y     888   888  `Y88   88P 
 o8o        o888o o888o  `88bod8'  
-                                  
-                                                                       
+
+
 ]]
 
 AddCSLuaFile()
@@ -36,11 +36,11 @@ SWEP.PrintName = "M16"
 SWEP.TrueName = "M16A2"
 SWEP.Class = "Tactical Rifle"
 SWEP.Trivia = {
-     Manufacturer = "Colt Manufacturing Company",
-     Calibre = "5.56x45mm",
-     Mechanism = "Direct impingement",
-     Country = "USA",
-     Year = 1966
+    Manufacturer = "Colt Manufacturing Company",
+    Calibre = "5.56x45mm",
+    Mechanism = "Direct impingement",
+    Country = "USA",
+    Year = 1966
 }
 
 SWEP.Credits = {
@@ -57,11 +57,11 @@ SWEP.UseHands = true
 SWEP.ViewModel = "models/weapons/arc9/c_arc9_m16_bocw.mdl"
 SWEP.WorldModel = "models/weapons/arc9/c_arc9_m16_bocw.mdl"
 
-SWEP.Slot = 3
+SWEP.Slot = 2
 
 SWEP.MirrorVMWM = true
 
-SWEP.DefaultBodygroups = "00000001000000"
+SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.WorldModelOffset = {
     Pos = Vector(-5, 3, -6.2),
@@ -72,32 +72,32 @@ SWEP.WorldModelOffset = {
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 70
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 30 -- Damage done at point blank range
-SWEP.DamageMin = 28 -- Damage done at maximum range
+SWEP.DamageMax = 50 -- Damage done at point blank range
+SWEP.DamageMin = 40 -- Damage done at maximum range
 
-SWEP.DamageRand = 0.01 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
+SWEP.DamageRand = 1 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 
-SWEP.RangeMin = 10 * 39.37 -- How far bullets retain their maximum damage for.
-SWEP.RangeMax = 150 * 39.37 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+SWEP.RangeMin = 21 * 39.37 -- How far bullets retain their maximum damage for.
+SWEP.RangeMax = 400 * 39.37 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 SWEP.Distance = 1200 * 39.37 -- In Hammer units, how far bullets can travel, period.
 
 SWEP.Num = 1 -- Number of bullets to shoot
 -- Bear in mind: Damage is divided by Num
 
-SWEP.Penetration = 5 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 10 -- Units of wood that can be penetrated by this gun.
 
 SWEP.DamageType = DMG_BULLET -- The damage type of the gun.
 -- DMG_BLAST will create explosive effects and create AOE damage.
 -- DMG_BURN will ignite the target.
 -- DMG_AIRBOAT will damage Combine Hunter-Choppers.
 
-SWEP.ArmorPiercing = 0.2 -- Between 0-1. A proportion of damage that is done as direct damage, ignoring protection.
+SWEP.ArmorPiercing = 0.5 -- Between 0-1. A proportion of damage that is done as direct damage, ignoring protection.
 
-SWEP.HeadshotDamage = 1.4
+SWEP.HeadshotDamage = 1
 SWEP.ChestDamage = 1
 SWEP.StomachDamage = 1
 SWEP.ArmDamage = 1
@@ -115,9 +115,9 @@ SWEP.BodyDamageMults = {
 
 SWEP.AlwaysPhysBullet = true
 
-SWEP.PhysBulletMuzzleVelocity = 550 * 39.37
+SWEP.PhysBulletMuzzleVelocity = 725 * 39.37
 SWEP.PhysBulletDrag = 1
-SWEP.PhysBulletGravity = 1
+SWEP.PhysBulletM16ity = 1
 SWEP.PhysBulletDontInheritPlayerVelocity = false -- Set to true to disable "Browning Effect"
 
 -------------------------- TRACERS
@@ -130,11 +130,11 @@ SWEP.TracerSize = 0.5
 
 -------------------------- MAGAZINE
 
-SWEP.Ammo = "smg1" -- What ammo type this gun uses.
+SWEP.Ammo = "ar2" -- What ammo type this gun uses.
 
 SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
-SWEP.ClipSize = 30 -- Self-explanatory.
-SWEP.SupplyLimit = 6 -- Amount of magazines of ammo this gun can take from an ARC-9 supply crate.
+SWEP.ClipSize = 20 -- Self-explanatory.
+SWEP.SupplyLimit = 3 -- Amount of magazines of ammo this gun can take from an ARC-9 supply crate.
 SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
 
 SWEP.ForceDefaultClip = nil -- Set to force a default amount of ammo this gun can have. Otherwise, this is controlled by console variables.
@@ -148,9 +148,22 @@ SWEP.ReloadInSights = true -- This weapon can aim down sights while reloading.
 
 SWEP.CanFireUnderwater = false -- This weapon can shoot while underwater.
 
+SWEP.ShouldDropMag = false
+SWEP.ShouldDropMagEmpty = false
+
+SWEP.DropMagazineModel = "models/weapons/arc9/atts/bocw_m16_magazine.mdl" -- Set to a string or table to drop this magazine when reloading.
+SWEP.DropMagazineSounds = {} -- Table of sounds a dropped magazine should play.
+SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
+SWEP.DropMagazineSkin = 0 -- Model skin of mag.
+SWEP.DropMagazineTime = 2
+SWEP.DropMagazineQCA = nil -- QC Attachment drop mag from, would drop from shell port if not defined
+SWEP.DropMagazinePos = Vector(-40, -30, 5) -- offsets
+SWEP.DropMagazineAng = Angle(0, -90, 0)
+SWEP.DropMagazineVelocity = Vector(-200, -200, 0) -- Put something here if your anim throws the mag with force
+
 -------------------------- FIREMODES
 
-SWEP.RPM = 722
+SWEP.RPM = 909
 
 -- Works different to ArcCW
 
@@ -164,32 +177,30 @@ SWEP.RPM = 722
 SWEP.Firemodes = {
     {
         Mode = 3,
+        RunawayBurst = true,
+        PostBurstDelay = 0.26
     },
     {
         Mode = 1,
     },
 }
 
-SWEP.AutoBurst = false -- Hold fire to keep firing bursts
-SWEP.PostBurstDelay = 0.3
-SWEP.RunawayBurst = false -- Burst will keep firing until all of the burst has been expended.
-
 -------------------------- RECOIL
 
-SWEP.Recoil = 0.5
-SWEP.RecoilSide = 0.1
-SWEP.RecoilUp = 0.2
+SWEP.Recoil = 1
+SWEP.RecoilSide = 0.05
+SWEP.RecoilUp = 0.15
 
-SWEP.RecoilRandomUp = 0.1
-SWEP.RecoilRandomSide = 0.1
+SWEP.RecoilRandomUp = 0
+SWEP.RecoilRandomSide = 0
 
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
-SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
+SWEP.RecoilResetTime = 0.1 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.1
-SWEP.RecoilKick = 1
+SWEP.RecoilAutoControl = 4
+SWEP.RecoilKick = 2
 
-SWEP.Spread = math.rad(1.15 / 37.5)
+SWEP.Spread = math.rad(1.3 / 37.5)
 SWEP.SpreadMultRecoil = 1.2
 
 SWEP.SpreadMultSights = 0.1
@@ -198,17 +209,24 @@ SWEP.SpreadAddMove = math.rad(100 / 37.5)
 SWEP.SpreadAddMidAir = 0.1
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
 
-SWEP.RecoilPatternDrift = 20
+SWEP.RecoilPatternDrift = 10
 
-SWEP.VisualRecoilUp = 0
-SWEP.VisualRecoilSide = 0
-SWEP.VisualRecoilRoll = 0
+SWEP.UseVisualRecoil = true
+
+SWEP.VisualRecoil = 1
+SWEP.VisualRecoilMultSights = 0.4
+
+SWEP.VisualRecoilUp = 0.25
+SWEP.VisualRecoilSide = -0.1
+SWEP.VisualRecoilRoll = 0.1
+
 SWEP.VisualRecoilCenter = Vector(0, 0, 0)
-SWEP.VisualRecoilPunch = 0
-SWEP.VisualRecoilMultSights = 0
+
+SWEP.VisualRecoilPunch = 1
+SWEP.VisualRecoilPunchMultSights = 1
 
 
-SWEP.NPCWeaponType = "weapon_smg"
+SWEP.NPCWeaponType = "weapon_ar2"
 SWEP.NPCWeight = 50
 
 -------------------------- HANDLING
@@ -219,21 +237,22 @@ SWEP.Sway = 0.3 -- How much the gun sways.
 SWEP.HoldBreathTime = 5 -- time that you can hold breath for
 SWEP.RestoreBreathTime = 4
 
-SWEP.FreeAimRadiusMultSights = 0.25
+SWEP.FreeAimRadiusSights = 0
 
 SWEP.SwayMultSights = 0.5
 
-SWEP.AimDownSightsTime = 0.3 -- How long it takes to go from hip fire to aiming down sights.
-SWEP.SprintToFireTime = 0.266 -- How long it takes to go from sprinting to being able to fire.
+SWEP.AimDownSightsTime = 0.350 -- How long it takes to go from hip fire to aiming down sights.
+SWEP.SprintToFireTime = 0.25 -- How long it takes to go from sprinting to being able to fire.
 
 SWEP.ShootWhileSprint = false
 
 SWEP.Speed = 1
 
 SWEP.SpeedMult = 0.95
-SWEP.SpeedMultSights = 0.375
-SWEP.SpeedMultShooting = 0.8
-SWEP.SpeedMultMelee = 0.75
+SWEP.SpeedMultSprint = 0.706
+SWEP.SpeedMultSights = 0.395
+SWEP.SpeedMultShooting = 0.85
+SWEP.SpeedMultMelee = 0.8
 SWEP.SpeedMultCrouch = 1
 --SWEP.SpeedMultBlindFire = 1
 
@@ -261,28 +280,28 @@ SWEP.ShootVolumeActual = 1
 SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0.05
 
---SWEP.FirstShootSound = "ARC9_BOCW.m16_fire"                       -- First fire
-SWEP.ShootSound = "ARC9_BOCW.m16_fire"                            -- Fire
---SWEP.ShootSoundIndoor = "ARC9_BOCW.m16_fire_int_decay"                  -- Fire indoors
-SWEP.ShootSoundSilenced = "ARC9_BOCW.m16_fire_silenced"                    -- Fire silenced
+SWEP.FirstShootSound = nil                      -- First fire
+SWEP.ShootSound = "ARC9_BOCW.M16_fire"                            -- Fire
+--SWEP.ShootSoundIndoor = "ARC9_BOCW.M16_fire_int_decay"                  -- Fire indoors
+SWEP.ShootSoundSilenced = "ARC9_BOCW.M16_fire_silenced"                    -- Fire silenced
 SWEP.ShootSoundIndoorSilenced = nil             -- Fire indoors silenced
 SWEP.FirstShootSoundSilenced = nil              -- First fire silenced
 SWEP.FirstDistantShootSound = nil               -- First distant fire
-SWEP.DistantShootSound = "ARC9_BOCW.m16_fire_dist"                     -- Distant fire
+SWEP.DistantShootSound = "ARC9_BOCW.Shared_Decay_Close_Rifle"                     -- Distant fire
 SWEP.DistantShootSoundIndoor = nil              -- Distant fire indoors
-SWEP.DistantShootSoundSilenced = nil            -- Distant fire silenced
+SWEP.DistantShootSoundSilenced = "ARC9_BOCW.Shared_Decay_Close_Suppressor"            -- Distant fire silenced
 SWEP.DistantShootSoundIndoorSilenced = nil      -- Distant fire indoors silenced
 SWEP.FirstDistantShootSoundSilenced = nil       -- First distant fire silenced
 
 SWEP.Silencer = false -- Silencer installed or not?
 
-SWEP.DryFireSound = "weapons/arc9/bocw/dryfire_smg.wav"
+SWEP.DryFireSound = "ARC9_BOCW.Shared_DryFire_AR"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.ToggleAttSound = "items/flashlight1.wav"
 
-SWEP.EnterSightsSound = ""
-SWEP.ExitSightsSound = ""
+SWEP.EnterSightsSound = "ARC9_BOCW.Shared_ADS_In"
+SWEP.ExitSightsSound = "ARC9_BOCW.Shared_ADS_Out"
 
 SWEP.EnterBipodSound = "arc9/bipod_down.wav"
 SWEP.ExitBipodSound = "arc9/bipod_up.wav"
@@ -292,9 +311,9 @@ SWEP.ExitUBGLSound = ""
 
 SWEP.MalfunctionSound = ""
 
-SWEP.MeleeHitSound = "arc9/melee_hitbody.wav"
+SWEP.MeleeHitSound = "ARC9_BOCW.Shared_Rifle_Melee_Hit"
 SWEP.MeleeHitWallSound = "arc9/melee_hitworld.wav"
-SWEP.MeleeSwingSound = "arc9/melee_miss.wav"
+SWEP.MeleeSwingSound = "ARC9_BOCW.Shared_Rifle_Melee_Swing"
 
 SWEP.BreathInSound = "arc9/breath_inhale.wav"
 SWEP.BreathOutSound = "arc9/breath_exhale.wav"
@@ -302,14 +321,15 @@ SWEP.BreathRunOutSound = "arc9/breath_runout.wav"
 
 -------------------------- EFFECTS
 
-SWEP.MuzzleParticle = "muzzleflash_famas" -- Used for some muzzle effects.
+SWEP.MuzzleParticle = "muzzleflash_1" -- Used for some muzzle effects.
 --SWEP.MuzzleEffect = "MuzzleFlash"
 
 SWEP.ShellModel = "models/shells/shell_556.mdl"
 
 SWEP.ShellSmoke = true
+SWEP.NoShellEject = true
 
-SWEP.ShellScale = 1
+SWEP.ShellScale = 1.2
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
 SWEP.ShellPitch = 100 -- for shell sounds
@@ -322,13 +342,17 @@ SWEP.CamQCA = 3
 
 --SWEP.DoFireAnimation = true
 
+SWEP.FireInterruptInspect = true
+SWEP.SightsInterruptInspect = true
+
 SWEP.NoViewBob = false
+
+SWEP.BobSprintMult = 0.1
 
 -------------------------- VISUALS
 
 SWEP.BulletBones = { -- the bone that represents bullets in gun/mag
-    [1] = "tag_bullet_animate",
-    [2] = "tag_bullets",
+    "tag_bullet_animate"
 }
 SWEP.CaseBones = {}
 -- Unlike BulletBones, these bones are determined by the missing bullet amount when reloading
@@ -342,13 +366,11 @@ SWEP.CaseBGs = {}
 SWEP.StripperClipBGs = {}
 
 SWEP.HideBones = {
-    "tag_clip1",
-    "tag_bullet_animate1",
+    "tag_bullet_deplete_sqtl_01_animate"
 } -- bones to hide in third person and customize menu. {"list", "of", "bones"}
-SWEP.ReloadHideBoneTables = { -- works only with TPIK
+SWEP.ReloadHideBoneTables = {
     [1] = {"tag_clip1"},
-    [2] = {"tag_bullet_animate1"},
-    -- [2] = {"list", "of", "bones"}
+    [2] = {"tag_clip", "tag_bullet_animate"} -- works only with TPIK
 }
 
 SWEP.PoseParameters = {} -- Poseparameters to manage. ["parameter"] = starting value.
@@ -361,55 +383,57 @@ SWEP.PoseParameters = {} -- Poseparameters to manage. ["parameter"] = starting v
 -- empty (Changes based on whether a bullet is loaded)
 -- ammo (Changes based on the ammo in the clip)
 
--------------------------- CAMO SYSTEM
-
-SWEP.CustomCamoTexture = nil
-SWEP.CustomCamoScale = 1
-SWEP.CustomBlendFactor = nil
-
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-3.579, -6, 0.545),
+    Pos = Vector(0, -3, 0),
     Ang = Angle(0, 0, 0),
-    Magnification = 1,
+    Magnification = 1.4,
+    Blur = true,
     --AssociatedSlot = 0, -- Attachment slot to associate the sights with. Causes RT scopes to render.
     CrosshairInSights = false,
 }
+
+SWEP.MagnificationZoomSpeed = 20
 
 SWEP.HasSights = true
 
 SWEP.ActivePos = Vector(0, -1.2, 0)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
-SWEP.CrouchPos = Vector(-4, 1, -4)
-SWEP.CrouchAng = Angle(0, 0, -30)
+SWEP.CrouchPos = Vector(-0.5, -1, -1)
+SWEP.CrouchAng = Angle(0, 0, -10)
 
 -- Position when sprinting or safe
 SWEP.RestPos = Vector(0, -1.2, 0)
 SWEP.RestAng = Angle(0, 0, 0)
 
-SWEP.SprintPos = Vector(0, -1.2, 0)
+SWEP.SprintPos = Vector(0, -4, 0)
 SWEP.SprintAng = Angle(0, 0, 0)
 
 SWEP.HolsterPos = Vector(0, 0, -5)
 SWEP.HolsterAng = Angle(0, -15, 25)
 
---SWEP.SprintMidPoint = {
---    Pos = Vector(4, 8, -4),
---    Ang = Angle(0, 5, -25)
---}
+SWEP.SightMidPoint = {
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0)
+}
 
 -- Position for customizing
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(15, 32, 4)
-SWEP.CustomizeSnapshotFOV = 75
-SWEP.CustomizeSnapshotPos = Vector(0, 0, 0)
+SWEP.CustomizePos = Vector(12, 40, 4)
+SWEP.CustomizeRotateAnchor = Vector(20, 0, -5)
+
+SWEP.CustomizeSnapshotFOV = 70
+SWEP.CustomizeSnapshotPos = Vector(0, 20, 0)
 SWEP.CustomizeSnapshotAng = Angle(0, 0, 0)
 SWEP.CustomizeNoRotate = false
 
 SWEP.BipodPos = Vector(0, 4, -4)
 SWEP.BipodAng = Angle(0, 0, 0)
+
+SWEP.PeekPos = Vector(-1.5, 3, -2)
+SWEP.PeekAng = Angle(0, 0.4, -35)
 
 -------------------------- HoldTypes
 
@@ -422,7 +446,7 @@ SWEP.HoldTypeBlindfire = "pistol"
 SWEP.HoldTypeNPC = nil
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
-SWEP.AnimReload = ACT_HL2MP_GESTURE_RELOAD_AR2 -- While in TPIK only
+--SWEP.AnimReload = ACT_HL2MP_GESTURE_RELOAD_AR2 -- While in TPIK only
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_AR2 -- Non TPIK
 SWEP.AnimDraw = false
 SWEP.AnimMelee = ACT_GMOD_GESTURE_MELEE_SHOVE_2HAND
@@ -437,85 +461,99 @@ SWEP.AttachmentElements = {
         Bodygroups = {
             {1, 1},
             {2, 1},
-            {9, 1}
         }
     },
-    ["magtapegone"] = {
-        Bodygroups = {
-            {9, 1}
-        }
-    },
-    ["optic_attached"] = {
+    ["optic_mount"] = {
         Bodygroups = {
             {3, 1},
-            {4, 2},
         }
     },
-    ["barrel_extended"] = {
+    ["barrelgone"] = {
         Bodygroups = {
-            {5, 1}
-        },
+            {5, 1},
+        }
+    },
+    ["handguardgone"] = {
+        Bodygroups = {
+            {6, 1},
+        }
+    },
+    ["stockgone"] = {
+        Bodygroups = {
+            {7, 1},
+        }
+    },
+    ["bayonetgone"] = {
+        Bodygroups = {
+            {9, 1},
+        }
+    },
+    ["bodymount_lasermixbody"] = {
+        Bodygroups = {
+            {10, 1},
+        }
+    },
+    ["bodymount_flashlight"] = {
+        Bodygroups = {
+            {11, 1},
+        }
+    },
+    ["barrel_rapidfire"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(0.955, 0, 0),
+                Pos = Vector(-8.61, 0, 0),
             },
         },
     },
-    ["barrel_cavalrylancer"] = {
+    ["barrel_cavalry"] = {
         Bodygroups = {
-            {5, 1}
+            {6, 1},
+            {8, 1},
         },
         AttPosMods = {
             [2] = {
-                Pos = Vector(2.53, 0, 0),
+                Pos = Vector(-4.24, 0, 0),
+            },
+        },
+    },
+    ["barrel_striketeam"] = {
+        Bodygroups = {
+            {8, 1},
+        },
+        AttPosMods = {
+            [2] = {
+                Pos = Vector(-4.24, 0, 0),
+            },
+        },
+    },
+    ["barrel_matchgrade"] = {
+        Bodygroups = {
+            {6, 1},
+            {8, 1},
+        },
+        AttPosMods = {
+            [2] = {
+                Pos = Vector(0.08, 0, 0),
             }
         },
     },
-    ["barrel_reinforcedheavy"] = {
-        Bodygroups = {
-            {5, 1}
-        },
+    ["barrel_titanium"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(4.46, 0, 0),
-            }
-        },
-    },
-    ["barrel_ranger"] = {
-        Bodygroups = {
-            {5, 1}
-        },
-        AttPosMods = {
-            [2] = {
-                Pos = Vector(5.35, 0, 0),
-            }
-        },
-    },
-    ["barrel_takedown"] = {
-        Bodygroups = {
-            {5, 1}
-        },
-        AttPosMods = {
-            [2] = {
-                Pos = Vector(5.35, 0, 0),
+                Pos = Vector(-8.61, 0, 0),
             }
         },
     },
     ["barrel_taskforce"] = {
         Bodygroups = {
-            {5, 1}
+            {5, 1},
+            {8, 1},
         },
         AttPosMods = {
             [2] = {
-                Pos = Vector(4.46, 0, 0),
+                Pos = Vector(0.08, 0, 0),
             }
         },
-    },
-    ["stockgone"] = {
-        Bodygroups = {
-            {6, 1},
-            {8, 1},
-        }
     },
 }
 
@@ -529,106 +567,190 @@ SWEP.AttachmentSlotMods = {
 
 -- Adjust the stats of specific attachments when applied to this gun
 SWEP.AttachmentTableOverrides = {
-    -- ["att_name"] = {
-    --     Mult_Recoil = 1
-    -- }
+    ["bocw_ak47_body_laser1"] = {
+        ModelOffset = Vector(0,-0.007,0.03),
+        Scale = 0.9,
+    },
+    ["bocw_ak47_body_laserpro"] = {
+        ModelOffset = Vector(0,-0.007,0.031),
+        Scale = 0.9,
+    },
+    ["bocw_ak47_body_mixbody1"] = {
+        ModelOffset = Vector(0.8,-0.18,0),
+    },
+    ["bocw_optic_visiontech2x"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_anpvs4thermal"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_axialarms3x"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_hangmanrf"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_pellingtonscope"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_royalkross4x"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_susatmultizoom"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_ultrazoomcustom"] = {
+        VisualRecoil = 0.1
+    },
+    ["bocw_optic_vulturecustomzoom"] = {
+        VisualRecoil = 0.1
+    },
 }
+
+SWEP.DuplicateAttachments = true
 
 SWEP.Attachments = {
     {
-        PrintName = "Optic", -- print name
+        PrintName = "OPTIC", -- print name
         Bone = "tag_weapon",
-        Pos = Vector(4, 0, 4.525),
+        Pos = Vector(4, 0, 3.28),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-1, 0, 0.5),
-        DefaultName = "Iron Sights",
-        Category = {"optic_picatinny", "bo1_optic"},
-        InstalledElements = {"optic_attached"},
+        Icon_Offset = Vector(0, 0, 0.5),
+        Category = {"optic_picatinny"},
+        InstalledElements = {"optic_mount"},
     },
     {
-        PrintName = "Muzzle",
+        PrintName = "MUZZLE",
         Bone = "tag_muzzle",
-        Pos = Vector(-0.012, 0, 0),
+        Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Category = {"bocw_556_west_muzzle", "bo1_muzzle"},
-        Attached = "bocw_muzzle_m16",
-        Integral = false
+        Icon_Offset = Vector(0, 0, 0),
+        Category = {"bocw_m16_muzzle", "bocw_east_muzzle", "bocw_east_muzzle_762"},
+        Installed = "bocw_m16_muzzle_base",
     },
     {
-        PrintName = "Underbarrel",
-        Bone = "tag_weapon",
-        Pos = Vector(10.5, 0, 2.5),
-        Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, -1),
-        Category = {"bo1_rail_underbarrel"},
-    },
-    {
-        PrintName = "Tactical",
-        Bone = "tag_weapon",
-        Pos = Vector(15.25, 0, 2),
-        Ang = Angle(0, 0, 0),
-        Category = {"bocw_m16_bodymount"},
-    },
-    {
-        PrintName = "Barrel",
+        PrintName = "BARREL",
         Bone = "tag_barrel",
-        Pos = Vector(0, 0, 0),
+        Pos = Vector(-15.634, 0, 1.237),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-5, 0, 0),
+        Icon_Offset = Vector(7.5, 0, 0),
         Category = {"bocw_m16_barrel"},
+        InstalledElements = {"barrelgone", "bayonetgone"},
     },
     {
-        PrintName = "Stock",
-        DefaultName = "Default Stock",
+        PrintName = "BODY",
         Bone = "tag_weapon",
-        Pos = Vector(0, 0, 0),
-        Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-5, 0, 3.6),
-        Category = {"bocw_m16_stock"},
+        Pos = Vector(17.5, 0.8, 2),
+        Ang = Angle(0, 0, -90),
+        Icon_Offset = Vector(0, 0, 0),
+        Category = {"bocw_ak47_body_mix"},
+        InstalledElements = {"bodymount_lasermixbody"},
     },
     {
-        PrintName = "Magazine",
+        Hidden = true,
+        Bone = "tag_weapon",
+        Pos = Vector(19.5, 1.11, 2),
+        Ang = Angle(0, 0, 0),
+        Category = {"bocw_east_body", "bocw_ak47_body"},
+        InstalledElements = {"bodymount_flashlight"},
+        MergeSlots = {4,5}
+    },
+    {
+        PrintName = "UNDRBARREL",
+        Bone = "tag_weapon",
+        Pos = Vector(-4, -4.42, 5),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(20.25, 4.5, -5),
+        Category = {"bocw_underbarrel_east"},
+        InstalledElements = {"bayonetgone"},
+    },
+    {
+        PrintName = "MAGAZINE",
         DefaultName = "30 Rnd",
         Bone = "tag_clip",
-        Bone2 = "tag_clip1",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0.25, 0, -2),
+        Icon_Offset = Vector(0, 0, -0.5),
         DuplicateModels = {
             {
                 Bone = "tag_clip1",
-            }
+            },
         },
         Category = {"bocw_m16_mag"},
+        InstalledElements = {"maggone"},
     },
     {
-        PrintName = "Handle",
+        PrintName = "HANDLE",
         Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-0.5, 0, -0.5),
+        Icon_Offset = Vector(-0.25, 0, 0),
         Category = {"bocw_m16_wrap"},
     },
     {
-        PrintName = "Ammo Type",
-        DefaultName = "Normal Calibre",
-        Category = {"ammo_bullet", "ammo_pap"}
+        PrintName = "STOCK",
+        Bone = "tag_weapon",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(-2, 0, -0.5),
+        Category = {"bocw_m16_stock"},
     },
     {
-        PrintName = "Perk",
-        DefaultName = "No Perk",
-        Category = {"bo1_perk", "perk"}
+        PrintName = "CAMO",
+        DefaultIcon = Material("arc9/def_att_icons/skin.png"),
+        Category = {"universal_camo"},
+        CosmeticOnly = true,
     },
     {
-        PrintName = "Sound",
-        DefaultName = "BOCW Sound",
-        DefaultIcon = Material("materials/entities/acwatt_bocw.png", "mips smooth"),
-        Category = {"bocw_m16_sound"},
+        PrintName = "STICKER 1",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker1.mdl",
+        CosmeticOnly = true,
     },
+    {
+        PrintName = "STICKER 2",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker2.mdl",
+        CosmeticOnly = true,
+    },
+    {
+        PrintName = "STICKER 3",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker3.mdl",
+        CosmeticOnly = true,
+    },
+    --[[ --until DuplicateStickerModels become a thing sticker 4 is unavailable for dualmag weapons.
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4.mdl",
+        CosmeticOnly = true,
+    }, 
+    ]]
 }
 
+SWEP.Hook_ModifyBodygroups = function(self, data)
+
+    local vm = data.model
+    local attached = data.elements
+end
+
 SWEP.Hook_TranslateAnimation = function(swep, anim)
+    
     local elements = swep:GetElements()
+
+    if anim == "enter_inspect" then
+        if elements["bocw_underbarrel_east"] then
+            return anim .. "_grip"
+        end
+    end
+
+    if anim == "fire" then
+        if elements["optic_mount"] then
+            return anim .. "_optic"
+        end
+    end
 
     if elements["m16_mag_ext"] then
         return anim .. "_ext"
@@ -641,191 +763,510 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
     if elements["m16_mag_mix"] then
         return anim .. "_mix"
     end
-
-    if elements["optic_attached"] then
-        return anim .. "_optic"
-    end
-
 end
 
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
-        Time = 10,
     },
-    ["idle_empty"] = {
-        Source = "idle_empty",
+    ["enter_sights"] = {
+        Source = "ads_in",
+        Time = 1,
+    },
+    ["idle_sights"] = {
+        Source = "idle",
+        Time = 1,
+    },
+    ["exit_sights"] = {
+        Source = "ads_out",
+        Time = 1,
     },
     ["draw"] = {
         Source = "draw",
-        Time = 0.8,
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 0
+            },
+        },
     },
     ["holster"] = {
         Source = "holster",
-        Time = 0.4,
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 0
+            },
+        },
     },
     ["ready"] = {
-        Source = "ready",
-        Time = 1.2,
+        Source = {"ready"},
         EventTable = {
-            { s = "ARC9_BOCW.M16_boltback", t = 0.25 },
-            { s = "ARC9_BOCW.M16_boltrelease", t = 0.45 },
+            { s = "ARC9_BOCW.M16_boltback", t = 0.2 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 0.5 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["bash"] = {
         Source = "melee",
-        Time = 1,
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.2,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.65,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.8,
+                lhik = 1,
+                rhik = 0
+            },
+        },
     },
     ["fire"] = {
         Source = {"fire"},
         EjectAt = 0,
     },
+    ["fire_empty"] = {
+        Source = {"fire_last"},
+        EjectAt = 0,
+    },
     ["fire_optic"] = {
-        Source = "fire_optic",
+        Source = {"fire_optic"},
         EjectAt = 0,
     },
     ["reload"] = {
         Source = "reload",
         NoMagSwap = true,
-        MinProgress = 1.52,
+        MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.M16_reload_start", t = 0 },
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.M16_reload_magin_rattle", t = 1.5 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1.8 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.3 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1.85 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_empty"] = {
         Source = "reload_empty",
-        MinProgress = 1.52,
+        MinProgress = 0.5,
+        DropMagAt = 0.6,
+        MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.M16_reload_start", t = 0 },
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
-            { s = "ARC9_BOCW.M16_reload_magin_rattle", t = 1.5 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1.8 },
-            { s = "ARC9_BOCW.M16_boltback", t = 2.4 },
-            { s = "ARC9_BOCW.M16_boltrelease", t = 2.6 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.9 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_boltback", t = 2.1 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.4 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.8 },
+            { hide = 1, t = 0 },
+            { hide = 0, t = 0.2 },
+            { hide = 2, t = 1 },
+            { hide = 1, t = 2.68},
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.5,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_ext"] = {
         Source = "reload_ext",
-        MinProgress = 1.62,
+        Mult = 1,
+        MinProgress = 0.65,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.7 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1.2 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.1 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1.85 },
+            { hide = 1, t = 0 },
+            { hide = 0, t = 0.2 },
+            { hide = 2, t = 1.9 },
+            { hide = 1, t = 2.25 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_empty_ext"] = {
         Source = "reload_ext_empty",
-        MinProgress = 1.62,
+        MinProgress = 0.4,
         MagSwapTime = 1,
+        DropMagAt = 0.6,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_empty_magout", t = 0.4 },
-            { s = "ARC9_BOCW.M16_reload_empty_magin", t = 1.1 },
-            { s = "ARC9_BOCW.M16_reload_empty_magintap", t = 1.8 },
-            { s = "ARC9_BOCW.M16_boltback", t = 2.2 },
-            { s = "ARC9_BOCW.M16_boltrelease", t = 2.5 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_boltback", t = 2.1 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.4 },
             { s = "ARC9_BOCW.M16_reload_end", t = 2.8 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.5,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_dual"] = {
-        Source = {"reload_dual", "reload_dual2"},
-        MinProgress = 1.2,
+        Source = "reload_dual",
+        MinProgress = 0.6,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_magout_dual", t = 0.35 },
-            { s = "ARC9_BOCW.M16_reload_magin_dual", t = 0.8 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 1.55 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1.8 },
+            { hide = 1, t = 0 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["1_reload_dual"] = {
+        Source = "reload_dual2",
+        MinProgress = 0.65,
+        EventTable = {
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1.85 },
+            { hide = 1, t = 0 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_empty_dual"] = {
-        Source = {"reload_dual_empty", "reload_dual2_empty"},
-        MinProgress = 1.2,
-        MagSwapTime = 1.57,
-        RareSourceChance = 0.5,
+        Source = "reload_dual_empty",
+        MinProgress = 0.5,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_magout_dual", t = 0.35 },
-            { s = "ARC9_BOCW.M16_reload_magin_dual", t = 0.8 },
-            { s = "ARC9_BOCW.M16_reload_fast_boltrelease", t = 1.5 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 1.9 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_boltback", t = 1.9 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.2 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.7 },
+            { hide = 1, t = 0 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.55,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
+        },
+    },
+    ["1_reload_empty_dual"] = {
+        Source = "reload_dual2_empty",
+        MinProgress = 0.5,
+        DropMagAt = 1.1,
+        EventTable = {
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_boltback", t = 1.9 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.2 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.7 },
+            { hide = 1, t = 0 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.55,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_mix"] = {
         Source = "reload_mix",
-        MinProgress = 1.52,
+        Mult = 1,
+        MinProgress = 0.58,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.7 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.1 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 1.8 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.75,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.9,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["reload_empty_mix"] = {
         Source = "reload_mix_empty",
-        MinProgress = 1.52,
+        Mult = 1,
+        MinProgress = 0.4,
+        MagSwapTime = 1,
         EventTable = {
-            { s = "ARC9_BOCW.M16_reload_empty_magout", t = 0.4 },
-            { s = "ARC9_BOCW.M16_reload_empty_magin", t = 1.1 },
-            { s = "ARC9_BOCW.M16_reload_empty_magintap", t = 1.8 },
-            { s = "ARC9_BOCW.M16_boltback", t = 2.2 },
-            { s = "ARC9_BOCW.M16_boltrelease", t = 2.5 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.8 },
+            { s = "ARC9_BOCW.M16_reload_start", t = 0 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
+            { s = "ARC9_BOCW.M16_reload_dual_magin", t = 1.1 },
+            { s = "ARC9_BOCW.M16_boltback", t = 2.1 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.4 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.7 },
+            { hide = 1, t = 0 },
+            { hide = 0, t = 0.2 },
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.55,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.6,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
     ["enter_sprint"] = {
         Source = "supersprint_in",
-        Time = 2
+        Time = 0.75,
+        NoStatAffectors = true
     },
     ["idle_sprint"] = {
         Source = "sprint_loop",
-        Time = 3
+        Time = 2,
+        NoStatAffectors = true
     },
     ["exit_sprint"] = {
         Source = "sprint_out",
-        Time = 0.4
+        Time = 0.4,
+        NoStatAffectors = true
     },
     ["enter_inspect"] = {
         Source = "inspect",
-        Time = 4.5,
         EventTable = {
-            { s = "ARC9_BOCW.M16_inspect1", t = 0 },
-            { s = "ARC9_BOCW.M16_inspect2", t = 3.2 },
+            { s = "ARC9_BOCW.M16_inspect_part1", t = 0 },
+            { s = "ARC9_BOCW.M16_inspect_part2", t = 1.8 },
+            { s = "ARC9_BOCW.M16_inspect_part3", t = 2.6 },
+            { s = "ARC9_BOCW.M16_inspect_part4", t = 3.4 },
+            { s = "ARC9_BOCW.M16_inspect_part5", t = 4.6 },
         },
-    },
-    ["enter_inspect_ext"] = {
-        Source = "inspect_extmag",
-        Time = 4.5,
-        EventTable = {
-            { s = "ARC9_BOCW.M16_inspect1", t = 0 },
-            { s = "ARC9_BOCW.M16_inspect2", t = 3.2 },
-        },
-    },
-    ["enter_inspect_mix"] = {
-        Source = "inspect_mixmag",
-        Time = 4.5,
-        EventTable = {
-            { s = "ARC9_BOCW.M16_inspect1", t = 0 },
-            { s = "ARC9_BOCW.M16_inspect2", t = 3.2 },
-        },
-    },
-    ["enter_inspect_dual"] = {
-        Source = "inspect_dualmag",
-        EventTable = {
-            { s = "ARC9_BOCW.M16_inspect_dual1", t = 0 },
-            { s = "ARC9_BOCW.M16_inspect_dual2", t = 3.2 },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 0
+            },
+            {
+                t = 0.1,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.5,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.65,
+                lhik = 1,
+                rhik = 0
+            },
         },
     },
 }
---[[
-SWEP.HookP_NameChange = function(self, name)
-    local attached = self:GetElements()
-    local gunname = "AKS-74U"
-
-    if attached["bo1_pap"] then
-        gunname = "AK-74NOFU2"
-    end
-
-    return gunname
-end
-]]
