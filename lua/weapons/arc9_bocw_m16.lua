@@ -178,10 +178,15 @@ SWEP.Firemodes = {
     {
         Mode = 3,
         RunawayBurst = true,
-        PostBurstDelay = 0.26
+        PostBurstDelay = 0.26,
+        FirstShootSound = "ARC9_BOCW.M16_fire_burst",
+        FirstShootSoundSilenced = "ARC9_BOCW.M16_fire_silenced_burst",
+        ShootSound = nil
     },
     {
         Mode = 1,
+        FirstShootSound = nil,
+        ShootSound = "ARC9_BOCW.M16_fire"
     },
 }
 
@@ -280,14 +285,14 @@ SWEP.ShootVolumeActual = 1
 SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0.05
 
-SWEP.FirstShootSound = nil                      -- First fire
-SWEP.ShootSound = "ARC9_BOCW.M16_fire"                            -- Fire
+--SWEP.FirstShootSound = "ARC9_BOCW.M16_fire_burst"
+--SWEP.ShootSound = nil
 --SWEP.ShootSoundIndoor = "ARC9_BOCW.M16_fire_int_decay"                  -- Fire indoors
 SWEP.ShootSoundSilenced = "ARC9_BOCW.M16_fire_silenced"                    -- Fire silenced
 SWEP.ShootSoundIndoorSilenced = nil             -- Fire indoors silenced
 SWEP.FirstShootSoundSilenced = nil              -- First fire silenced
 SWEP.FirstDistantShootSound = nil               -- First distant fire
-SWEP.DistantShootSound = "ARC9_BOCW.Shared_Decay_Close_Rifle"                     -- Distant fire
+SWEP.DistantShootSound = "ARC9_BOCW.Shared_Decay_Close_M16"                     -- Distant fire
 SWEP.DistantShootSoundIndoor = nil              -- Distant fire indoors
 SWEP.DistantShootSoundSilenced = "ARC9_BOCW.Shared_Decay_Close_Suppressor"            -- Distant fire silenced
 SWEP.DistantShootSoundIndoorSilenced = nil      -- Distant fire indoors silenced
@@ -422,7 +427,7 @@ SWEP.SightMidPoint = {
 -- Position for customizing
 SWEP.CustomizeAng = Angle(90, 0, 0)
 SWEP.CustomizePos = Vector(12, 40, 4)
-SWEP.CustomizeRotateAnchor = Vector(20, 0, -5)
+SWEP.CustomizeRotateAnchor = Vector(14, 0, -5)
 
 SWEP.CustomizeSnapshotFOV = 70
 SWEP.CustomizeSnapshotPos = Vector(0, 20, 0)
@@ -460,12 +465,11 @@ SWEP.AttachmentElements = {
     ["maggone"] = {
         Bodygroups = {
             {1, 1},
-            {2, 1},
         }
     },
     ["optic_mount"] = {
         Bodygroups = {
-            {3, 1},
+            {2, 1},
         }
     },
     ["barrelgone"] = {
@@ -613,11 +617,10 @@ SWEP.Attachments = {
     {
         PrintName = "OPTIC", -- print name
         Bone = "tag_weapon",
-        Pos = Vector(4, 0, 3.28),
+        Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, 0.5),
-        Category = {"optic_picatinny"},
-        InstalledElements = {"optic_mount"},
+        Icon_Offset = Vector(3.75, 0, 5.4),
+        Category = {"bocw_m16_optic"},
     },
     {
         PrintName = "MUZZLE",
@@ -625,7 +628,7 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_m16_muzzle", "bocw_east_muzzle", "bocw_east_muzzle_762"},
+        Category = {"bocw_m16_muzzle", "bocw_xm4_muzzle"},
         Installed = "bocw_m16_muzzle_base",
     },
     {
@@ -635,7 +638,7 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(7.5, 0, 0),
         Category = {"bocw_m16_barrel"},
-        InstalledElements = {"barrelgone", "bayonetgone"},
+        InstalledElements = {"barrelgone"},
     },
     {
         PrintName = "BODY",
@@ -719,7 +722,6 @@ SWEP.Attachments = {
         StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker3.mdl",
         CosmeticOnly = true,
     },
-    --[[ --until DuplicateStickerModels become a thing sticker 4 is unavailable for dualmag weapons.
     {
         PrintName = "STICKER 4", 
         Bone = "tag_clip",
@@ -727,7 +729,6 @@ SWEP.Attachments = {
         StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4.mdl",
         CosmeticOnly = true,
     }, 
-    ]]
 }
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
@@ -814,9 +815,9 @@ SWEP.Animations = {
     ["ready"] = {
         Source = {"ready"},
         EventTable = {
-            { s = "ARC9_BOCW.M16_boltback", t = 0.2 },
+            { s = "ARC9_BOCW.M16_boltback", t = 0.3 },
             { s = "ARC9_BOCW.M16_boltrelease", t = 0.5 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 0.9 },
         },
         IKTimeLine = {
             {
@@ -871,12 +872,13 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "reload",
         NoMagSwap = true,
-        MinProgress = 0.65,
+        MinProgress = 0.7,
         EventTable = {
             { s = "ARC9_BOCW.M16_reload_start", t = 0 },
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 1.85 },
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_maginrattle", t = 1.5 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.8 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.4 },
         },
         IKTimeLine = {
             {
@@ -903,20 +905,17 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload_empty",
-        MinProgress = 0.5,
+        MinProgress = 0.6,
         DropMagAt = 0.6,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.M16_reload_start", t = 0 },
-            { s = "ARC9_BOCW.M16_reload_magout", t = 0.4 },
-            { s = "ARC9_BOCW.M16_reload_magin", t = 1.1 },
-            { s = "ARC9_BOCW.M16_boltback", t = 2.1 },
-            { s = "ARC9_BOCW.M16_boltrelease", t = 2.4 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.8 },
-            { hide = 1, t = 0 },
-            { hide = 0, t = 0.2 },
-            { hide = 2, t = 1 },
-            { hide = 1, t = 2.68},
+            { s = "ARC9_BOCW.M16_reload_magout", t = 0.3 },
+            { s = "ARC9_BOCW.M16_reload_maginrattle", t = 1.5 },
+            { s = "ARC9_BOCW.M16_reload_magin", t = 1.8 },
+            { s = "ARC9_BOCW.M16_boltback", t = 2.5 },
+            { s = "ARC9_BOCW.M16_boltrelease", t = 2.7 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 3.1 },
         },
         IKTimeLine = {
             {
@@ -1241,10 +1240,9 @@ SWEP.Animations = {
         Source = "inspect",
         EventTable = {
             { s = "ARC9_BOCW.M16_inspect_part1", t = 0 },
-            { s = "ARC9_BOCW.M16_inspect_part2", t = 1.8 },
-            { s = "ARC9_BOCW.M16_inspect_part3", t = 2.6 },
-            { s = "ARC9_BOCW.M16_inspect_part4", t = 3.4 },
-            { s = "ARC9_BOCW.M16_inspect_part5", t = 4.6 },
+            { s = "ARC9_BOCW.M16_inspect_part2", t = 1.7 },
+            { s = "ARC9_BOCW.M16_inspect_part3", t = 4 },
+            { s = "ARC9_BOCW.M16_inspect_part4", t = 4.9 }
         },
         IKTimeLine = {
             {
