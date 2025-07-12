@@ -925,10 +925,10 @@ ARC9.LoadAttachment(ATT, "bocw_m16_magazine_mix1")
 
 ATT = {}
 
-ATT.PrintName = "STANAG 54 Rnd" --// 4
-ATT.CompactName = "54 RND"
+ATT.PrintName = "STANAG 50 Rnd" --// 4
+ATT.CompactName = "50 RND"
 ATT.Icon = Material("entities/bocw_atts/magazines/m16_extpro.png", "mips smooth")
-ATT.Description = [[High-capacity magazine contains 54 rounds of ammunition.
+ATT.Description = [[High-capacity magazine contains 50 rounds of ammunition.
 
 The STANAG is a type of Magazine attachment available for most NATO weapons in Call of Duty: Black Ops Cold War. It acts as a high capacity mag, giving more ammo but giving the added downside of a worse aiming time and reload speed. There are two different Warsaw Pact equivalents in the Bakelite Mag and the Spetsnaz Mag.]]
 
@@ -942,7 +942,7 @@ ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
-ATT.ClipSizeOverride = 54
+ATT.ClipSizeOverride = 50
 
 ATT.ReloadTimeMult = 1.1
 ATT.AimDownSightsTimeMult = 1.15
@@ -1002,7 +1002,7 @@ ATT.ReloadTimeMult = 0.65
 
 ATT.MultAimDownSightsTime = 0.75
 
-ATT.ActivateElements = {"m16_mag_mixpro"}
+ATT.ActivateElements = {"m16_mag_mix"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_magazine_mixpro")
 --========== HANDLE ===================
@@ -2610,6 +2610,30 @@ ATT.MuzzleDevice = true
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_type63_muzzle_base")
+
+ATT = {}
+
+ATT.PrintName = "M16 Muzzle Device"
+ATT.CompactName = "M16 MUZZ"
+ATT.Icon = Material("entities/bocw_atts/muzzles/m16_muzzle.png", "mips smooth")
+ATT.Description = [[Default M16 muzzle device.]]
+
+ATT.SortOrder = -10
+
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_muzzle.mdl"
+
+ATT.Category = {"bocw_m16_muzzle"}
+
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MuzzleParticleOverride = "muzzleflash_5"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_m16_muzzle_base")
 
 ATT = {}
 
