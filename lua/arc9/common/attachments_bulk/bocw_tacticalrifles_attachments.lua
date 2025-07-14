@@ -675,7 +675,7 @@ ATT.RPMMult = 1.07
 ATT.MuzzleParticleOverride_Priority = 100
 ATT.MuzzleDevice = true
 
-ATT.ActivateElements = {"barrel_rapidfire"}
+ATT.ActivateElements = {"barrel_rapidfire", "barrelringgone"}
 
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
@@ -684,7 +684,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_barrel_rapidfire")
 ATT = {}
 
 ATT.PrintName = [[15.9" Cavalry Lancer]] --// 2
-ATT.CompactName = [[15.9" CVLRY]]
+ATT.CompactName = [[15.9" CAVLRY]]
 ATT.Icon = Material("entities/bocw_atts/barrels/m16_cavalry.png", "mips smooth")
 ATT.Description = [[Heavy profile barrel broach rifled to improve damage against enemy vehicles.
 
@@ -706,7 +706,7 @@ ATT.ArmorPiercingMult = 2.5
 ATT.MuzzleParticleOverride_Priority = 100
 ATT.MuzzleDevice = true
 
-ATT.ActivateElements = {"barrel_cavalry"}
+ATT.ActivateElements = {"barrel_cavalry", "barrelringgone"}
 
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
@@ -739,7 +739,7 @@ ATT.RangeMaxMult = 0.75
 ATT.MuzzleParticleOverride_Priority = 100
 ATT.MuzzleDevice = true
 
-ATT.ActivateElements = {"barrel_striketeam"}
+ATT.ActivateElements = {"barrel_striketeam", "barrelringgone"}
 
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
@@ -771,7 +771,7 @@ ATT.RangeMaxMult = 0.75
 ATT.MuzzleParticleOverride_Priority = 100
 ATT.MuzzleDevice = true
 
-ATT.ActivateElements = {"barrel_titanium"}
+ATT.ActivateElements = {"barrel_titanium", "barrelringgone"}
 
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
@@ -1229,7 +1229,7 @@ ATT.SortOrder = 3
 
 ATT.Category = "bocw_m16_stock"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_m16_stock_nostock.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_stock_buffertube.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -1239,7 +1239,7 @@ ATT.SprintToFireTimeMult = 0.7
 
 ATT.SpreadMultHipFire = 1.15
 
-ARC9.LoadAttachment(ATT, "bocw_m16_stock_nostock")
+ARC9.LoadAttachment(ATT, "bocw_m16_stock_buffertube")
 
 ATT = {}
 

@@ -474,17 +474,17 @@ SWEP.AttachmentElements = {
     },
     ["barrelgone"] = {
         Bodygroups = {
-            {5, 1},
+            {4, 2},
         }
     },
-    ["handguardgone"] = {
+    ["barrelringgone"] = {
         Bodygroups = {
-            {6, 1},
+            {5, 1},
         }
     },
     ["stockgone"] = {
         Bodygroups = {
-            {7, 1},
+            {6, 2},
         }
     },
     ["bayonetgone"] = {
@@ -505,57 +505,42 @@ SWEP.AttachmentElements = {
     ["barrel_rapidfire"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-8.61, 0, 0),
+                Pos = Vector(-5.21, 0, 0),
             },
         },
     },
     ["barrel_cavalry"] = {
-        Bodygroups = {
-            {6, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(-4.24, 0, 0),
+                Pos = Vector(-5.51, 0, 0),
             },
         },
     },
     ["barrel_striketeam"] = {
-        Bodygroups = {
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(-4.24, 0, 0),
+                Pos = Vector(-5.51, 0, 0),
             },
         },
     },
     ["barrel_matchgrade"] = {
-        Bodygroups = {
-            {6, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(0.08, 0, 0),
+                Pos = Vector(-0.3, 0, 0),
             }
         },
     },
     ["barrel_titanium"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-8.61, 0, 0),
+                Pos = Vector(-5.21, 0, 0),
             }
         },
     },
     ["barrel_taskforce"] = {
-        Bodygroups = {
-            {5, 1},
-            {8, 1},
-        },
         AttPosMods = {
             [2] = {
-                Pos = Vector(0.08, 0, 0),
+                Pos = Vector(-0.3, 0, 0),
             }
         },
     },
@@ -634,9 +619,9 @@ SWEP.Attachments = {
     {
         PrintName = "BARREL",
         Bone = "tag_barrel",
-        Pos = Vector(-20, 0, 0),
+        Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(7.5, 0, 0),
+        Icon_Offset = Vector(-13, 0, 0),
         Category = {"bocw_m16_barrel"},
         InstalledElements = {"barrelgone"},
     },
@@ -661,7 +646,7 @@ SWEP.Attachments = {
     {
         PrintName = "UNDRBARREL",
         Bone = "tag_weapon",
-        Pos = Vector(-9, -4.42, 6.65),
+        Pos = Vector(-10.3, -4.42, 6.65),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(20.25, 4.5, -5),
         Category = {"bocw_underbarrel_west"},
@@ -691,6 +676,7 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(-5, 0, 3.5),
         Category = {"bocw_m16_stock"},
+        InstalledElements = {"stockgone"},
     },
     {
         PrintName = "CAMO",
@@ -1167,7 +1153,7 @@ SWEP.Animations = {
             { s = "ARC9_BOCW.M16_reload_magout", t = 0.1 },
             { s = "ARC9_BOCW.M16_reload_maginrattle", t = 0.9 },
             { s = "ARC9_BOCW.M16_reload_magin", t = 1.5 },
-            { s = "ARC9_BOCW.M16_reload_end", t = 2.1 },
+            { s = "ARC9_BOCW.M16_reload_end", t = 2.2 },
         },
         IKTimeLine = {
             {
