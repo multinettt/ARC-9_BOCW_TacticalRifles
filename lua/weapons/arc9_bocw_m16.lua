@@ -202,7 +202,7 @@ SWEP.RecoilRandomSide = 0
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.1 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 4
+SWEP.RecoilAutoControl = 2
 SWEP.RecoilKick = 2
 
 SWEP.Spread = math.rad(1.3 / 37.5)
@@ -467,11 +467,6 @@ SWEP.AttachmentElements = {
             {1, 1},
         }
     },
-    ["optic_mount"] = {
-        Bodygroups = {
-            {2, 1},
-        }
-    },
     ["barrelgone"] = {
         Bodygroups = {
             {4, 2},
@@ -502,7 +497,25 @@ SWEP.AttachmentElements = {
             {11, 1},
         }
     },
+    ["barrel_a1"] = {
+        Bodygroups = {
+            {4, 1},
+        }
+    },
+    ["stock_a1"] = {
+        Bodygroups = {
+            {6, 1},
+        }
+    },
+    ["receiver_a1"] = {
+        Bodygroups = {
+            {7, 1},
+        }
+    },
     ["barrel_rapidfire"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.21, 0, 0),
@@ -510,6 +523,9 @@ SWEP.AttachmentElements = {
         },
     },
     ["barrel_cavalry"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.51, 0, 0),
@@ -517,6 +533,9 @@ SWEP.AttachmentElements = {
         },
     },
     ["barrel_striketeam"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.51, 0, 0),
@@ -524,6 +543,9 @@ SWEP.AttachmentElements = {
         },
     },
     ["barrel_matchgrade"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-0.3, 0, 0),
@@ -531,6 +553,9 @@ SWEP.AttachmentElements = {
         },
     },
     ["barrel_titanium"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.21, 0, 0),
@@ -538,6 +563,9 @@ SWEP.AttachmentElements = {
         },
     },
     ["barrel_taskforce"] = {
+        Bodygroups = {
+            {4, 2},
+        },
         AttPosMods = {
             [2] = {
                 Pos = Vector(-0.3, 0, 0),
@@ -613,7 +641,7 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_m16_muzzle", "bocw_xm4_muzzle"},
+        Category = {"bocw_m16_muzzle", "bocw_west_muzzle_556"},
         Installed = "bocw_m16_muzzle_base",
     },
     {
@@ -623,7 +651,6 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(-13, 0, 0),
         Category = {"bocw_m16_barrel"},
-        InstalledElements = {"barrelgone"},
     },
     {
         PrintName = "BODY",
@@ -631,8 +658,7 @@ SWEP.Attachments = {
         Pos = Vector(17.5, 0.8, 2),
         Ang = Angle(0, 0, -90),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_ak47_body_mix"},
-        InstalledElements = {"bodymount_lasermixbody"},
+        Category = {"bocw_body_mount_lasermixbody", "bocw_body_mount_flashlight"},
     },
     {
         Hidden = true,
@@ -676,7 +702,14 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(-5, 0, 3.5),
         Category = {"bocw_m16_stock"},
-        InstalledElements = {"stockgone"},
+    },
+    {
+        PrintName = "RECEIVER",
+        Bone = "tag_weapon",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(2, 0, 2.4),
+        Category = {"bocw_m16_receiver"},
     },
     {
         PrintName = "CAMO",
@@ -689,6 +722,7 @@ SWEP.Attachments = {
         Category = "stickers",
         StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker1.mdl",
         CosmeticOnly = true,
+        ExcludeElements = {"bocw_m16_receiver_a1"}
     },
     {
         PrintName = "STICKER 2",
@@ -708,30 +742,63 @@ SWEP.Attachments = {
         Category = "stickers",
         StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4.mdl",
         CosmeticOnly = true,
-    }, 
+        ExcludeElements = {"m16_mag_ext", "m16_mag_dual"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4_ext.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_m16_magazine_ext1"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4_extpro.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_m16_magazine_extpro"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_m16_sticker4_dual.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"m16_mag_dual"}
+    },
 }
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
 
     local vm = data.model
     local attached = data.elements
+
+    if attached["optic_mount"] then
+        if attached["bocw_m16_receiver_a1"] then
+            vm:SetBodygroup(2, 2) -- set correct rail mount for both receivers
+        else
+            vm:SetBodygroup(2, 1)
+        end
+    end
+end
+
+SWEP.HookP_NameChange = function(self, name)
+
+    local attached = self:GetElements()
+    local gunname = "M16A2"
+
+    if attached["bocw_m16_receiver_a1"] then
+        gunname = "M16A1"
+    end
+
+    return gunname
 end
 
 SWEP.Hook_TranslateAnimation = function(swep, anim)
     
     local elements = swep:GetElements()
-
-    if anim == "enter_inspect" then
-        if elements["bocw_underbarrel_east"] then
-            return anim .. "_grip"
-        end
-    end
-
-    if anim == "fire" then
-        if elements["optic_mount"] then
-            return anim .. "_optic"
-        end
-    end
 
     if elements["m16_mag_ext"] then
         return anim .. "_ext"

@@ -653,6 +653,26 @@ ARC9.LoadAttachment(ATT, "bocw_type63_stock_kgb")
 --========== BARREL ===================
 ATT = {}
 
+ATT.PrintName = [[21" M16A1 Barrel]] --// 1
+ATT.CompactName = [[21" A1]]
+ATT.Icon = Material("entities/bocw_atts/barrels/m16_rapidfire.png", "mips smooth")
+ATT.Description = [[Original M16A1 barrel assembly.]]
+
+ATT.SortOrder = 21
+
+ATT.Category = "bocw_m16_barrel"
+
+ATT.MuzzleParticleOverride_Priority = 100
+ATT.MuzzleDevice = true
+
+ATT.ActivateElements = {"barrel_a1", "barrelringgone"}
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_m16_barrel_a1")
+
+ATT = {}
+
 ATT.PrintName = [[16.3" Rapid Fire]] --// 1
 ATT.CompactName = [[16.3" RAPID]]
 ATT.Icon = Material("entities/bocw_atts/barrels/m16_rapidfire.png", "mips smooth")
@@ -844,6 +864,26 @@ ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_m16_barrel_taskforce")
 --========== MAGAZINE =================
+
+ATT = {}
+
+ATT.PrintName = "20 Rnd A1" --// 0
+ATT.CompactName = "20 RND A1"
+ATT.Icon = Material("entities/bocw_atts/magazines/m16_mag.png", "mips smooth")
+ATT.Description = [[Well worn M16A1 magazine with 20 rounds.]]
+
+ATT.SortOrder = 0
+
+ATT.Category = "bocw_m16_mag"
+
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_magazine_a1.mdl"
+
+ATT.Scale = 1
+ATT.ModelOffset = Vector(0.11, 0, 0.47)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ARC9.LoadAttachment(ATT, "bocw_m16_magazine_a1")
+
 ATT = {}
 
 ATT.PrintName = "30 Rnd" --// 1
@@ -1149,6 +1189,23 @@ ARC9.LoadAttachment(ATT, "bocw_m16_handle_airborne")
 --========== STOCK ====================
 ATT = {}
 
+ATT.PrintName = "A1 Stock" --// 1
+ATT.CompactName = "A1 STOCK"
+ATT.Icon = Material("entities/bocw_atts/stocks/m16_stock.png", "mips smooth")
+ATT.Description = [[Original M16A1 stock.]]
+
+ATT.SortOrder = -1
+
+ATT.Category = "bocw_m16_stock"
+
+ATT.ActivateElements = {"stock_a1"}
+
+ATT.SpeedMultSights = 1.65
+
+ARC9.LoadAttachment(ATT, "bocw_m16_stock_a1")
+
+ATT = {}
+
 ATT.PrintName = "Tactical Stock" --// 1
 ATT.CompactName = "TAC STOCK"
 ATT.Icon = Material("entities/bocw_atts/stocks/m16_tactical.png", "mips smooth")
@@ -1167,6 +1224,8 @@ ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SpeedMultSights = 1.65
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_tactical")
 
@@ -1191,6 +1250,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SprintToFireTimeMult = 0.9
 
+ATT.ActivateElements = {"stockgone"}
+
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_wire")
 
 ATT = {}
@@ -1213,6 +1274,8 @@ ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SpeedMult = 1.05
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_duster")
 
@@ -1238,6 +1301,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.SprintToFireTimeMult = 0.7
 
 ATT.SpreadMultHipFire = 1.15
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_buffertube")
 
@@ -1265,6 +1330,8 @@ ATT.SpeedMultSighted = 1.5
 
 ATT.SpreadMultHipFire = 1.15
 
+ATT.ActivateElements = {"stockgone"}
+
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_sascombat")
 
 ATT = {}
@@ -1290,6 +1357,8 @@ ATT.SprintToFireTimeMult = 0.7
 ATT.SpeedMultSighted = 1.4
 
 ATT.SpreadMultHipFire = 1.3
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_stock_raider")
 --========== AUG ==============================================================
@@ -2692,7 +2761,7 @@ ATT.CompactName = "OPTIC"
 ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
 ATT.Description = [[Original AUG scope assembly.]]
 
-ATT.SortOrder = 3
+ATT.SortOrder = -10
 
 ATT.Model = "models/weapons/arc9/atts/bocw_scope_aug.mdl"
 
@@ -2739,8 +2808,8 @@ ATT = {} -- M16 OPTIC MOUNT =========================================
 
 ATT.PrintName = "Optic Mount"
 ATT.CompactName = "OPTIC MNT"
-ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
-ATT.Description = [[Top installed rail mount for attaching optics to the M16.]]
+ATT.Icon = Material("entities/bocw_atts/m16_opticmount.png", "mips smooth")
+ATT.Description = [[Top installed rail mount for attaching optics to the M16 carry handle. Longitudinal hole provides use of regular iron sights as backup.]]
 ATT.SortOrder = 0
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 ATT.Free = true
@@ -2754,10 +2823,54 @@ ATT.Attachments = {
         Pos = Vector(-4, 0, -6.34),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"optic_picatinny_pistol", "optic_picatinny"},
+        Category = {"bocw_optic"},
+    }
+}
+
+ATT.Sights = {
+    {
+        Pos = Vector(0, 2, -6.15),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.4,
+        Disassociate = true
     }
 }
 
 ATT.ActivateElements = {"optic_mount"}
 
 ARC9.LoadAttachment(ATT, "bocw_m16_mount_optic")
+
+-----
+
+ATT = {}
+
+ATT.PrintName = [[A1 Receiver]]
+ATT.CompactName = [[A1 RECEIVER]]
+ATT.Icon = Material("entities/bocw_atts/m16_receiver.png", "mips smooth")
+ATT.Description = [[M16A1 receiver with full auto capability.]]
+
+ATT.SortOrder = 1
+
+ATT.Category = "bocw_m16_receiver"
+
+ATT.FiremodesOverride = {
+    {
+        Mode = -1,
+        ShootSound = "ARC9_BOCW.M16_fire",
+        ShootSoundSilenced = "ARC9_BOCW.M16_fire_silenced",
+    },
+    {
+        Mode = 1,
+        FirstShootSound = nil,
+        ShootSound = "ARC9_BOCW.M16_fire"
+    },
+}
+
+ATT.RecoilSideMult = 1.6
+ATT.RecoilUpMult = 3
+
+ATT.ActivateElements = {"receiver_a1"}
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_m16_receiver_a1")
