@@ -34,7 +34,7 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "DMR 14"
 SWEP.TrueName = "M14"
-SWEP.Class = "Battle Rifle"
+SWEP.Class = "Tactical Rifle"
 SWEP.Trivia = {
     Manufacturer = "Springfield Armory",
     Calibre = "7.62x51mm NATO",
@@ -477,18 +477,12 @@ SWEP.AttachmentElements = {
     },
     ["laser_mount"] = {
         Bodygroups = {
-            {3, 1},
+            {4, 1},
         }
-    },
-    ["barrel_normal"] = {
-        Bodygroups = {
-            {4, 0},
-            {5, 0}
-        },
     },
     ["barrel_rapidfire"] = {
         Bodygroups = {
-            {4, 1}
+            {5, 1}
         },
         AttPosMods = {
             [2] = {
@@ -498,7 +492,7 @@ SWEP.AttachmentElements = {
     },
     ["barrel_titanium"] = {
         Bodygroups = {
-            {4, 1}
+            {5, 1}
         },
         AttPosMods = {
             [2] = {
@@ -506,10 +500,10 @@ SWEP.AttachmentElements = {
             }
         },
     },
-    ["barrel_cavalrylancer"] = {
+    ["barrel_cavalry"] = {
         Bodygroups = {
-            {4, 1},
-            {5, 1}
+            {5, 1},
+            {6, 1}
         },
         AttPosMods = {
             [2] = {
@@ -519,8 +513,8 @@ SWEP.AttachmentElements = {
     },
     ["barrel_matchgrade"] = {
         Bodygroups = {
-            {4, 1},
-            {5, 1}
+            {5, 1},
+            {6, 1}
         },
         AttPosMods = {
             [2] = {
@@ -530,8 +524,8 @@ SWEP.AttachmentElements = {
     },
     ["barrel_striketeam"] = {
         Bodygroups = {
-            {4, 1},
-            {5, 1}
+            {5, 1},
+            {6, 1}
         },
         AttPosMods = {
             [2] = {
@@ -541,8 +535,8 @@ SWEP.AttachmentElements = {
     },
     ["barrel_taskforce"] = {
         Bodygroups = {
-            {4, 1},
-            {5, 1}
+            {5, 1},
+            {6, 1}
         },
         AttPosMods = {
             [2] = {
@@ -552,7 +546,7 @@ SWEP.AttachmentElements = {
     },
     ["stockgone"] = {
         Bodygroups = {
-            {6, 1}
+            {7, 1}
         }
     },
 }
@@ -567,17 +561,6 @@ SWEP.AttachmentSlotMods = {
 
 -- Adjust the stats of specific attachments when applied to this gun
 SWEP.AttachmentTableOverrides = {
-    ["bocw_ak47_body_laser1"] = {
-        ModelOffset = Vector(0,-0.007,0.03),
-        Scale = 0.9,
-    },
-    ["bocw_ak47_body_laserpro"] = {
-        ModelOffset = Vector(0,-0.007,0.031),
-        Scale = 0.9,
-    },
-    ["bocw_ak47_body_mixbody1"] = {
-        ModelOffset = Vector(0.8,-0.18,0),
-    },
     ["bocw_optic_visiontech2x"] = {
         VisualRecoil = 0.1
     },
@@ -613,9 +596,9 @@ SWEP.Attachments = {
     {
         PrintName = "OPTIC", -- print name
         Bone = "tag_weapon",
-        Pos = Vector(4, 0, 3.28),
+        Pos = Vector(8, 0, 3.55),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, 0.5),
+        Icon_Offset = Vector(0, 0, 0),
         Category = {"optic_picatinny"},
         InstalledElements = {"optic_mount"},
     },
@@ -625,23 +608,22 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_dmr14_muzzle", "bocw_west_muzzle_762"},
+        Category = {"bocw_dmr14_muzzle", "bocw_762_west_muzzle"},
         Installed = "bocw_dmr14_muzzle_base",
     },
     {
         PrintName = "BARREL",
         Bone = "tag_barrel",
-        Pos = Vector(-15.634, 0, 1.237),
+        Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(8, 0.35, 0.5),
         Category = {"bocw_dmr14_barrel"},
-        UnInstalledElements = {"barrel_normal"}
     },
     {
         PrintName = "BODY",
         Bone = "tag_weapon",
-        Pos = Vector(17.5, 0.8, 2),
-        Ang = Angle(0, 0, -90),
+        Pos = Vector(23.8, 0, 1.5),
+        Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_dmr14_gasblock"},
     },
@@ -650,7 +632,7 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(-6.1, -4.42, 5.16),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(20.25, 4.5, -5),
+        Icon_Offset = Vector(20.25, 4.5, -5.1),
         Category = {"bocw_underbarrel_west"},
     },
     {
@@ -667,12 +649,12 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-0.25, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_dmr14_wrap"},
     },
     {
         PrintName = "STOCK",
-        Bone = "tag_weapon",
+        Bone = "tag_stock",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(4, 0, 1),
@@ -724,12 +706,6 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
     if anim == "enter_inspect" then
         if elements["bocw_underbarrel_west"] then
             return anim .. "_grip"
-        end
-    end
-
-    if anim == "fire" then
-        if elements["optic_mount"] then
-            return anim .. "_optic"
         end
     end
 

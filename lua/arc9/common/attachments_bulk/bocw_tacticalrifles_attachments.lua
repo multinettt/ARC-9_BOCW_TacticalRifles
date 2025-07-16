@@ -1072,7 +1072,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_handle_speed")
 ATT = {}
 
 ATT.PrintName = "Dropshot Wrap" --// 2
-ATT.CompactName = "DRPSHT WRP"
+ATT.CompactName = "DROPSHOT"
 ATT.Icon = Material("entities/bocw_atts/handles/m16_dropshot.png", "mips smooth")
 ATT.Description = [[Tightly wrapped fabric bands to improve flinch stability when aiming from different stances.
 
@@ -1114,7 +1114,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_handle_fieldtape")
 ATT = {}
 
 ATT.PrintName = "SASR Jungle Grip" --// 4
-ATT.CompactName = "SASR GRP"
+ATT.CompactName = "SASR GRIP"
 ATT.Icon = Material("entities/bocw_atts/handles/m16_sasrjungle.png", "mips smooth")
 ATT.Description = [[Makeshift combination of fabric tape and rubber bands to improve aiming speed and flinch stability.
 
@@ -1139,7 +1139,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_handle_sasrjungle")
 ATT = {}
 
 ATT.PrintName = "Serpent Wrap" --// 5
-ATT.CompactName = "SRPNT WRP"
+ATT.CompactName = "SERPENT"
 ATT.Icon = Material("entities/bocw_atts/handles/m16_serpent.png", "mips smooth")
 ATT.Description = [[Duct tape with an adhesive coating ensures a firm grip to improve aiming speed.
 
@@ -1164,7 +1164,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_handle_serpent")
 ATT = {}
 
 ATT.PrintName = "Airborne Elastic Wrap" --// 6
-ATT.CompactName = "AIRBRN WRP"
+ATT.CompactName = "AIRBORNE"
 ATT.Icon = Material("entities/bocw_atts/handles/m16_airborne.png", "mips smooth")
 ATT.Description = [[Non-abrasive grip sleeve improves shooter stability while maintaining agility.
 
@@ -2053,7 +2053,7 @@ ATT.SortOrder = 17.1
 
 ATT.Category = "bocw_dmr14_barrel"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_dmr14_barrel_cavalry.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_dmr14_barrel_cavalrylancer.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -2363,7 +2363,7 @@ ATT.ReloadTimeMult = 0.65
 
 ATT.MultAimDownSightsTime = 0.75
 
-ATT.ActivateElements = {"dmr14_mag_mixpro"}
+ATT.ActivateElements = {"dmr14_mag_mix"}
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_magazine_mixpro")
 --========== HANDLE ===================
@@ -2380,7 +2380,7 @@ ATT.SortOrder = 0
 
 ATT.Category = "bocw_dmr14_wrap"
 
-ATT.Model = "models/weapons/arc9/atts/bocw_dmr14_handle_speed.mdl"
+ATT.Model = "models/weapons/arc9/atts/bocw_dmr14_handle_speedtape.mdl"
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(0, 0, 0)
@@ -2535,7 +2535,7 @@ ATT = {}
 
 ATT.PrintName = "Wire Stock" --// 2
 ATT.CompactName = "WIRE STOCK"
-ATT.Icon = Material("entities/bocw_atts/stocks/dmr14_marathon.png", "mips smooth")
+ATT.Icon = Material("entities/bocw_atts/stocks/dmr14_wire.png", "mips smooth")
 ATT.Description = [[Lightweight stock improves versatility by improving sprint recovery time.
 
 The Wire Stock is a Stock attachment available in Call of Duty: Black Ops Cold War. It decreases the delay between sprinting and firing. It has alternates in the forms of the Marathon Stock, Collapsed Stock, CQB Stock and Shotgun Stock.]]
@@ -2551,6 +2551,8 @@ ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SprintToFireTimeMult = 0.9
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_stock_wire")
 
@@ -2574,6 +2576,8 @@ ATT.ModelOffset = Vector(0, 0, 0)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.SpeedMult = 1.05
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_stock_duster")
 
@@ -2599,6 +2603,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.SprintToFireTimeMult = 0.7
 
 ATT.SpreadMultHipFire = 1.15
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_stock_nostock")
 
@@ -2651,6 +2657,8 @@ ATT.SprintToFireTimeMult = 0.7
 ATT.SpeedMultSighted = 1.4
 
 ATT.SpreadMultHipFire = 1.3
+
+ATT.ActivateElements = {"stockgone"}
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_stock_raider")
 
@@ -2829,7 +2837,7 @@ ATT.Attachments = {
 
 ATT.Sights = {
     {
-        Pos = Vector(0, 2, -6.15),
+        Pos = Vector(0, 2.42, -6.15),
         Ang = Angle(0, 0, 0),
         Magnification = 1.4,
         Disassociate = true
