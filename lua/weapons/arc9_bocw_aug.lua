@@ -66,7 +66,7 @@ SWEP.MirrorVMWM = true
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.WorldModelOffset = {
-    Pos = Vector(-5, 3, -6.2),
+    Pos = Vector(-9, 3, -6.2),
     Ang = Angle(-10, 0, 180),
     Scale = 1
 }
@@ -514,6 +514,11 @@ SWEP.AttachmentElements = {
             {6, 1},
         }
     },
+    ["foregripgone"] = {
+        Bodygroups = {
+            {5, 1},
+        }
+    },
     ["stockgone"] = {
         Bodygroups = {
             {7, 1},
@@ -551,7 +556,7 @@ SWEP.AttachmentElements = {
     ["barrel_striketeam"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-0.87, 0, 0),
+                Pos = Vector(-2.56, 0, 0),
             },
         },
     },
@@ -572,7 +577,7 @@ SWEP.AttachmentElements = {
     ["barrel_taskforce"] = {
         AttPosMods = {
             [2] = {
-                Pos = Vector(-2.56, 0, 0),
+                Pos = Vector(-0.87, 0, 0),
             }
         },
     },
@@ -677,9 +682,8 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(-11, -4.42, 5.67),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(20.25, 4.5, -5),
-        Category = {"bocw_underbarrel_west"},
-        InstalledElements = {"foregripmount"},
+        Icon_Offset = Vector(19.6, 4.5, -3.65),
+        Category = {"bocw_underbarrel_west", "bocw_aug_underbarrel"},
     },
     {
         PrintName = "MAGAZINE",
@@ -696,7 +700,7 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(-0.75, 0, -0.5),
+        Icon_Offset = Vector(-0.75, 0, -0.75),
         Category = {"bocw_aug_wrap"},
     },
     {
@@ -748,6 +752,11 @@ SWEP.Hook_ModifyBodygroups = function(self, data)
     if not attached["bocw_optic_aug"] then
         vm:SetBodygroup(2, 1) -- unhide optic rail when aug scope no longer attached
     end
+
+    if  attached["bocw_underbarrel_west"] then
+        vm:SetBodygroup(5, 1)
+        vm:SetBodygroup(6, 1)
+    end
 end
 
 SWEP.Hook_TranslateAnimation = function(swep, anim)
@@ -788,11 +797,16 @@ SWEP.Animations = {
         IKTimeLine = {
             {
                 t = 0,
-                lhik = 1,
+                lhik = 0,
                 rhik = 0
             },
             {
-                t = 1,
+                t = 0.4,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.5,
                 lhik = 1,
                 rhik = 0
             },
@@ -824,11 +838,16 @@ SWEP.Animations = {
         IKTimeLine = {
             {
                 t = 0,
-                lhik = 1,
+                lhik = 0,
                 rhik = 0
             },
             {
-                t = 1,
+                t = 0.6,
+                lhik = 0,
+                rhik = 0
+            },
+            {
+                t = 0.85,
                 lhik = 1,
                 rhik = 0
             },

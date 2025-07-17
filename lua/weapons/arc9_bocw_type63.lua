@@ -64,7 +64,7 @@ SWEP.MirrorVMWM = true
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.WorldModelOffset = {
-    Pos = Vector(-5, 3, -6.2),
+    Pos = Vector(-6, 4, -6.2),
     Ang = Angle(-10, 0, 180),
     Scale = 1
 }

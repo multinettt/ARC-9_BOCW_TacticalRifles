@@ -2715,7 +2715,7 @@ ARC9.LoadAttachment(ATT, "bocw_m16_muzzle_base")
 ATT = {}
 
 ATT.PrintName = "M14 Muzzle Brake"
-ATT.CompactName = "M14 MUZZ"
+ATT.CompactName = "M14 MUZZLE"
 ATT.Icon = Material("entities/bocw_atts/muzzles/dmr14_muzzle.png", "mips smooth")
 ATT.Description = [[7.62x39mm Muzzle Brake]]
 
@@ -2738,14 +2738,38 @@ ARC9.LoadAttachment(ATT, "bocw_dmr14_muzzle_base")
 
 ATT = {}
 
-ATT.PrintName = "AUG Muzzle Brake"
-ATT.CompactName = "MUZZLE"
+ATT.PrintName = "AUG 3-Prong Muzzle Brake"
+ATT.CompactName = "3P MUZZLE"
 ATT.Icon = Material("entities/bocw_atts/muzzles/aug_muzzle.png", "mips smooth")
-ATT.Description = [[7.62x39mm Muzzle Brake]]
+ATT.Description = [[3-Prong Muzzle Brake]]
 
 ATT.SortOrder = -10
 
 ATT.Model = "models/weapons/arc9/atts/bocw_aug_muzzle.mdl"
+
+ATT.Category = {"bocw_aug_muzzle"}
+
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MuzzleParticleOverride = "muzzleflash_3"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_aug_muzzle_base3prong")
+
+ATT = {}
+
+ATT.PrintName = "AUG Muzzle Brake"
+ATT.CompactName = "AUG MUZZLE"
+ATT.Icon = Material("entities/bocw_atts/muzzles/aug_muzzle.png", "mips smooth")
+ATT.Description = [[5.56 Muzzle Brake]]
+
+ATT.SortOrder = -10
+
+ATT.Model = "models/weapons/arc9/atts/bocw_aug_muzzle2.mdl"
 
 ATT.Category = {"bocw_aug_muzzle"}
 
@@ -2917,3 +2941,35 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_dmr14_body_flashmount")
+
+--
+
+ATT = {}
+
+ATT.PrintName = "AUG Foregrip"
+ATT.CompactName = "AUG GRIP"
+ATT.Icon = Material("entities/bocw_atts/underbarrels/foregrippro_west.png", "mips smooth")
+ATT.Description = [[Integrated foregrip inheriting the stats of the Field Agent Foregrip.]]
+
+ATT.SortOrder = -1
+
+ATT.Model = "models/weapons/arc9/atts/bocw_aug_underbarrel.mdl"
+
+ATT.Category = {"bocw_aug_underbarrel"}
+
+ATT.ModelOffset = Vector(-0.717, 0.015, 0.149)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 5
+
+ATT.RecoilUpMult = 0.9
+ATT.RecoilSideMult = 0.6
+
+ATT.SpeedMultShooting = 0.84
+
+ATT.ActivateElements = {"foregripgone"}
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_aug_underbarrel")
