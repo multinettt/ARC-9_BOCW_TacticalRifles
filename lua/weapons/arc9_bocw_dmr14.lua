@@ -8,7 +8,7 @@
 
 --   BASE  : ARC9
 --   BUILD : v2025.6
---   SR.NO : 33101
+--   SR.NO : 057693
 
 
 oooooooooo.   ooo        ooooo ooooooooo.        .o        .o   
@@ -430,7 +430,7 @@ SWEP.SightMidPoint = {
 -- Position for customizing
 SWEP.CustomizeAng = Angle(90, 0, 0)
 SWEP.CustomizePos = Vector(15, 45, 3)
-SWEP.CustomizeRotateAnchor = Vector(20, 0, -5)
+SWEP.CustomizeRotateAnchor = Vector(15, 0, -3)
 
 SWEP.CustomizeSnapshotFOV = 70
 SWEP.CustomizeSnapshotPos = Vector(0, 20, 0)
@@ -622,10 +622,11 @@ SWEP.Attachments = {
     {
         PrintName = "BODY",
         Bone = "tag_weapon",
-        Pos = Vector(23.8, 0, 1.5),
+        Pos = Vector(23.9, 0, 0.8),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_dmr14_gasblock"},
+        Category = {"bocw_xm4_body", "bocw_dmr14_mount_light"},
+        InstalledElements = {"laser_mount"},
     },
     {
         PrintName = "UNDRBARREL",
@@ -649,7 +650,7 @@ SWEP.Attachments = {
         Bone = "tag_weapon",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(0, 0, 0),
+        Icon_Offset = Vector(0.5, 0, 0.5),
         Category = {"bocw_dmr14_wrap"},
     },
     {
@@ -657,7 +658,7 @@ SWEP.Attachments = {
         Bone = "tag_stock",
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(4, 0, 1),
+        Icon_Offset = Vector(5, 0, 1),
         Category = {"bocw_dmr14_stock"},
     },
     {
@@ -863,10 +864,11 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload",
+        Time = 2.5,
         NoMagSwap = true,
         MinProgress = 0.7,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },
             { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
             { s = "ARC9_BOCW.DMR14_reload_end", t = 1.95 },
         },
@@ -900,7 +902,7 @@ SWEP.Animations = {
         DropMagAt = 0.6,
         MagSwapTime = 1,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },
             { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
             { s = "ARC9_BOCW.DMR14_boltback", t = 2.4 },
             { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.5 },
@@ -930,12 +932,12 @@ SWEP.Animations = {
     },
     ["reload_ext"] = {
         Source = "reload_ext",
-        Mult = 0.75,
+        Time = 2.5,
         MinProgress = 0.5,
         EventTable = {
             { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
-            { s = "ARC9_BOCW.DMR14_magin", t = 1.5 },
-            { s = "ARC9_BOCW.DMR14_reload_end", t = 2.6 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_reload_end", t = 2 },
         },
         IKTimeLine = {
             {
@@ -962,15 +964,15 @@ SWEP.Animations = {
     },
     ["reload_empty_ext"] = {
         Source = "reload_ext_empty",
-        Mult = 0.74,
+        Time = 3.5,
         MinProgress = 0.4,
         MagSwapTime = 1,
         DropMagAt = 0.6,
         EventTable = {
             { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
-            { s = "ARC9_BOCW.DMR14_magin", t = 1.5 },
-            { s = "ARC9_BOCW.DMR14_boltback", t = 3.15 },
-            { s = "ARC9_BOCW.DMR14_boltrelease", t = 3.3 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.4 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.5 },
         },
         IKTimeLine = {
             {
@@ -997,11 +999,11 @@ SWEP.Animations = {
     },
     ["reload_mix"] = {
         Source = "reload_mix",
-        Mult = 1,
+        Time = 2.5,
         MinProgress = 0.5,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_magout", t = 0.4 },
-            { s = "ARC9_BOCW.DMR14_magin", t = 1.2 },
+            { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },
+            { s = "ARC9_BOCW.DMR14_magin", t = 1.1 },
             { s = "ARC9_BOCW.DMR14_reload_end", t = 1.95 },
         },
         IKTimeLine = {
@@ -1029,14 +1031,14 @@ SWEP.Animations = {
     },
     ["reload_empty_mix"] = {
         Source = "reload_mix_empty",
-        Mult = 1.1,
+        Time = 3.5,
         MinProgress = 0.4,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },
             { s = "ARC9_BOCW.DMR14_magin", t = 1.1 },
-            { s = "ARC9_BOCW.DMR14_boltback", t = 2.2 },
-            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.3 },
+            { s = "ARC9_BOCW.DMR14_boltback", t = 2.3 },
+            { s = "ARC9_BOCW.DMR14_boltrelease", t = 2.4 },
         },
         IKTimeLine = {
             {

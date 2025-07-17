@@ -169,7 +169,7 @@ ATT.CompactName = [[21.5" TASKF]]
 ATT.Icon = Material("entities/bocw_atts/barrels/type63_taskforce.png", "mips smooth")
 ATT.Description = [[Nitride lined barrel button rifled to improve bullet velocity, range and damage.
 
-The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. Shotguns get a unique stat set by only getting a massive damage boost but at the cost of a reduced damage range. There is an alternate type in the Spetsnaz RPK Barrel.]]
+The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. For Tactical Rifles, it gives the same benefits but without the loss of a starting magazine. There is an alternate type in the Spetsnaz RPK Barrel.]]
 
 ATT.SortOrder = 21.5
 
@@ -836,7 +836,7 @@ ATT.CompactName = [[20.5" TASKF]]
 ATT.Icon = Material("entities/bocw_atts/barrels/m16_taskforce.png", "mips smooth")
 ATT.Description = [[Nitride lined barrel button rifled to improve bullet velocity, range and damage.
 
-The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. Shotguns get a unique stat set by only getting a massive damage boost but at the cost of a reduced damage range. There is an alternate type in the Spetsnaz RPK Barrel.]]
+The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. For Tactical Rifles, it gives the same benefits but without the loss of a starting magazine. There is an alternate type in the Spetsnaz RPK Barrel.]]
 
 ATT.SortOrder = 20.5
 
@@ -1528,7 +1528,7 @@ ATT.CompactName = [[19.8" TASKF]]
 ATT.Icon = Material("entities/bocw_atts/barrels/aug_taskforce.png", "mips smooth")
 ATT.Description = [[Nitride lined barrel button rifled to improve bullet velocity, range and damage.
 
-The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. Shotguns get a unique stat set by only getting a massive damage boost but at the cost of a reduced damage range. There is an alternate type in the Spetsnaz RPK Barrel.]]
+The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. For Tactical Rifles, it gives the same benefits but without the loss of a starting magazine. There is an alternate type in the Spetsnaz RPK Barrel.]]
 
 ATT.SortOrder = 19.8
 
@@ -2043,7 +2043,7 @@ ARC9.LoadAttachment(ATT, "bocw_dmr14_barrel_rapidfire")
 ATT = {}
 
 ATT.PrintName = [[17.1" Cavalry Lancer]] --// 2
-ATT.CompactName = [[17.1" CVLRY]]
+ATT.CompactName = [[17.1" CAVLRY]]
 ATT.Icon = Material("entities/bocw_atts/barrels/dmr14_cavalry.png", "mips smooth")
 ATT.Description = [[Heavy profile barrel broach rifled to improve damage against enemy vehicles.
 
@@ -2175,7 +2175,7 @@ ATT.CompactName = [[20.8" TASKF]]
 ATT.Icon = Material("entities/bocw_atts/barrels/dmr14_taskforce.png", "mips smooth")
 ATT.Description = [[Nitride lined barrel button rifled to improve bullet velocity, range and damage.
 
-The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. Shotguns get a unique stat set by only getting a massive damage boost but at the cost of a reduced damage range. There is an alternate type in the Spetsnaz RPK Barrel.]]
+The Task Force barrel is an attachment type available for most Assault Rifles, Submachine Guns, Tactical Rifles, Light Machine Guns, Pistols, and Shotguns in Call of Duty: Black Ops Cold War. For Tactical Rifles, it gives the same benefits but without the loss of a starting magazine. There is an alternate type in the Spetsnaz RPK Barrel.]]
 
 ATT.SortOrder = 20.8
 
@@ -2882,3 +2882,38 @@ ATT.ActivateElements = {"receiver_a1"}
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_m16_receiver_a1")
+
+--
+
+ATT = {}
+
+ATT.PrintName = "Flashlight Adapter"
+ATT.CompactName = "FLSHLGHT"
+ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
+ATT.Description = [[Addition to the tactical rail mount of the DMR 14 in order to attach flashlights.]]
+
+ATT.SortOrder = 0
+
+ATT.Free = true
+
+ATT.Category = {"bocw_dmr14_mount_light"}
+
+ATT.Model = "models/weapons/arc9/atts/bocw_mount_tacrifle_flashlight.mdl"
+
+ATT.Attachments = {
+    {
+        PrintName = "BODY",
+        Bone = "tag_weapon",
+        Pos = Vector(-1.45, -0.08, 0.55),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0.08, -0.5),
+        Category = "bocw_body_flashlight_west"
+    }
+}
+
+ATT.ModelOffset = Vector(0.6, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_dmr14_body_flashmount")

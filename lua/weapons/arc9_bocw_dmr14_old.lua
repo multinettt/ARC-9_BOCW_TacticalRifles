@@ -7,7 +7,7 @@
 --   SWEP INFORMATION:
 
 --   BASE  : ARC9
---   BUILD : v2025.6
+--   BUILD : v2023
 --   SR.NO : 33101
 
 
@@ -27,7 +27,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arc9_base"
 
-SWEP.Spawnable = true
+SWEP.Spawnable = false
 SWEP.Category = "ARC9 - Black Ops Cold War"
 SWEP.SubCategory = "Tactical Rifles"
 SWEP.AdminOnly = false
