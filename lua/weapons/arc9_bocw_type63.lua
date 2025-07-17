@@ -668,7 +668,7 @@ SWEP.Attachments = {
         Pos = Vector(-4, -4.42, 5),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(20.25, 4.5, -5),
-        Category = {"bocw_underbarrel_east"},
+        Category = {"bocw_tr_underbarrel_east"},
         InstalledElements = {"bayonetgone"},
     },
     {

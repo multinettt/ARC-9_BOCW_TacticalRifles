@@ -460,7 +460,7 @@ SWEP.CustomizePos = Vector(11, 40, 4)
 SWEP.CustomizeRotateAnchor = Vector(11, 0, -5)
 
 SWEP.CustomizeSnapshotFOV = 70
-SWEP.CustomizeSnapshotPos = Vector(0, 20, 0)
+SWEP.CustomizeSnapshotPos = Vector(7, 15, 0)
 SWEP.CustomizeSnapshotAng = Angle(0, 0, 0)
 SWEP.CustomizeNoRotate = false
 
@@ -680,10 +680,10 @@ SWEP.Attachments = {
     {
         PrintName = "UNDRBARREL",
         Bone = "tag_weapon",
-        Pos = Vector(-11, -4.42, 5.67),
+        Pos = Vector(-11.6, -4.42, 5.67),
         Ang = Angle(0, 0, 0),
-        Icon_Offset = Vector(19.6, 4.5, -3.65),
-        Category = {"bocw_underbarrel_west", "bocw_aug_underbarrel"},
+        Icon_Offset = Vector(20.2, 4.5, -3.65),
+        Category = {"bocw_tr_underbarrel_west", "bocw_aug_underbarrel"},
     },
     {
         PrintName = "MAGAZINE",
@@ -753,7 +753,7 @@ SWEP.Hook_ModifyBodygroups = function(self, data)
         vm:SetBodygroup(2, 1) -- unhide optic rail when aug scope no longer attached
     end
 
-    if  attached["bocw_underbarrel_west"] then
+    if  attached["bocw_tr_underbarrel_west"] then
         vm:SetBodygroup(5, 1)
         vm:SetBodygroup(6, 1)
     end

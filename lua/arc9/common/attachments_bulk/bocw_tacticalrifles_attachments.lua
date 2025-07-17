@@ -2949,7 +2949,7 @@ ATT = {}
 ATT.PrintName = "AUG Foregrip"
 ATT.CompactName = "AUG GRIP"
 ATT.Icon = Material("entities/bocw_atts/underbarrels/foregrippro_west.png", "mips smooth")
-ATT.Description = [[Integrated foregrip inheriting the stats of the Field Agent Foregrip.]]
+ATT.Description = [[Folding vertical grip for improved recoil control.]]
 
 ATT.SortOrder = -1
 
@@ -2957,7 +2957,7 @@ ATT.Model = "models/weapons/arc9/atts/bocw_aug_underbarrel.mdl"
 
 ATT.Category = {"bocw_aug_underbarrel"}
 
-ATT.ModelOffset = Vector(-0.717, 0.015, 0.149)
+ATT.ModelOffset = Vector(-0.117, 0.015, 0.149)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.LHIK = true
