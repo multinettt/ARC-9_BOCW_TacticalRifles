@@ -641,7 +641,7 @@ SWEP.Attachments = {
         Pos = Vector(-0.85, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_aug_muzzle", "bocw_xm4_muzzle"},
+        Category = {"bocw_aug_muzzle", "bocw_tr_muzzle_west556"},
         Installed = "bocw_aug_muzzle_base",
         Integral = "bocw_aug_muzzle_base",
     },

@@ -641,7 +641,7 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_m16_muzzle", "bocw_west_muzzle_556"},
+        Category = {"bocw_m16_muzzle", "bocw_tr_muzzle_west556"},
         Installed = "bocw_m16_muzzle_base",
     },
     {
@@ -659,15 +659,6 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, -90),
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_body_mount_lasermixbody", "bocw_body_mount_flashlight"},
-    },
-    {
-        Hidden = true,
-        Bone = "tag_weapon",
-        Pos = Vector(19.5, 1.11, 2),
-        Ang = Angle(0, 0, 0),
-        Category = {"bocw_east_body", "bocw_ak47_body"},
-        InstalledElements = {"bodymount_flashlight"},
-        MergeSlots = {4,5}
     },
     {
         PrintName = "UNDRBARREL",

@@ -632,7 +632,7 @@ SWEP.Attachments = {
         Pos = Vector(0, 0, 0),
         Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_type63_muzzle", "bocw_east_muzzle", "bocw_east_muzzle_762"},
+        Category = {"bocw_type63_muzzle", "bocw_tr_muzzle_east762"},
         Installed = "bocw_type63_muzzle_base",
     },
     {
@@ -1286,6 +1286,21 @@ SWEP.Animations = {
     },
     ["exit_sprint"] = {
         Source = "sprint_out",
+        Time = 0.4,
+        NoStatAffectors = true
+    },
+    ["enter_sprint_empty"] = {
+        Source = "sprint_in_empty",
+        Time = 0.4,
+        NoStatAffectors = true
+    },
+    ["idle_sprint_empty"] = {
+        Source = "sprint_loop_empty",
+        Time = 2,
+        NoStatAffectors = true
+    },
+    ["exit_sprint_empty"] = {
+        Source = "sprint_out_empty",
         Time = 0.4,
         NoStatAffectors = true
     },
