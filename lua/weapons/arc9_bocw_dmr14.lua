@@ -610,6 +610,7 @@ SWEP.Attachments = {
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_dmr14_muzzle", "bocw_tr_muzzle_west762"},
         Installed = "bocw_dmr14_muzzle_base",
+        Integral = "bocw_dmr14_muzzle_base",
     },
     {
         PrintName = "BARREL",
@@ -669,15 +670,43 @@ SWEP.Attachments = {
     },
     {
         PrintName = "STICKER 1",
+        Bone = "tag_weapon",
         Category = "stickers",
         StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker1.mdl",
         CosmeticOnly = true,
+        ExcludeElements = {"bocw_dmr14_stock_raider", "bocw_dmr14_stock_duster"}
+    },
+    {
+        PrintName = "STICKER 1",
+        Bone = "tag_weapon",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker1_raider.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_stock_raider"}
+    },
+    {
+        PrintName = "STICKER 1",
+        Bone = "tag_weapon",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker1_duster.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_stock_duster"}
     },
     {
         PrintName = "STICKER 2",
+        Bone = "tag_weapon",
         Category = "stickers",
         StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker2.mdl",
         CosmeticOnly = true,
+        ExcludeElements = {"bocw_dmr14_stock_raider"}
+    },
+    {
+        PrintName = "STICKER 2",
+        Bone = "tag_weapon",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker2_raider.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_stock_raider"}
     },
     {
         PrintName = "STICKER 3",
@@ -691,7 +720,48 @@ SWEP.Attachments = {
         Category = "stickers",
         StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4.mdl",
         CosmeticOnly = true,
-    }, 
+        ExcludeElements = {"dmr14_mag_ext", "dmr14_mag_dual", "dmr14_mag_mix"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4_ext.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_magazine_ext1"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4_extpro.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_magazine_extpro"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4_dual.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"dmr14_mag_dual"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4_mix.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_magazine_mix1"}
+    },
+    {
+        PrintName = "STICKER 4", 
+        Bone = "tag_clip",
+        Category = "stickers",
+        StickerModel = "models/weapons/arc9/stickers/bocw_dmr14_sticker4_mixpro.mdl",
+        CosmeticOnly = true,
+        RequireElements = {"bocw_dmr14_magazine_mixpro"}
+    },
 }
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
@@ -1209,11 +1279,25 @@ SWEP.Animations = {
         Time = 0.4,
         NoStatAffectors = true
     },
+    ["enter_sprint_empty"] = {
+        Source = "supersprint_in_empty",
+        Time = 0.75,
+        NoStatAffectors = true
+    },
+    ["idle_sprint_empty"] = {
+        Source = "sprint_loop_empty",
+        Time = 2,
+        NoStatAffectors = true
+    },
+    ["exit_sprint_empty"] = {
+        Source = "sprint_out_empty",
+        Time = 0.4,
+        NoStatAffectors = true
+    },
     ["enter_inspect"] = {
         Source = "inspect",
         Time = 6,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_inspect_part1", t = 0 },
             { s = "ARC9_BOCW.DMR14_inspect_part2", t = 4.2 },
         },
         IKTimeLine = {
@@ -1233,7 +1317,6 @@ SWEP.Animations = {
         Source = "inspect_grip",
         Time = 6,
         EventTable = {
-            { s = "ARC9_BOCW.DMR14_inspect_part1", t = 0 },
             { s = "ARC9_BOCW.DMR14_inspect_part2", t = 4.2 },
         },
         IKTimeLine = {
