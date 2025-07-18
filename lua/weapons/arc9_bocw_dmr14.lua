@@ -156,10 +156,10 @@ SWEP.DropMagazineSounds = {} -- Table of sounds a dropped magazine should play.
 SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
 SWEP.DropMagazineSkin = 0 -- Model skin of mag.
 SWEP.DropMagazineTime = 2
-SWEP.DropMagazineQCA = nil -- QC Attachment drop mag from, would drop from shell port if not defined
-SWEP.DropMagazinePos = Vector(-40, -30, 5) -- offsets
-SWEP.DropMagazineAng = Angle(0, -90, 0)
-SWEP.DropMagazineVelocity = Vector(-200, -200, 0) -- Put something here if your anim throws the mag with force
+SWEP.DropMagazineQCA = 1 -- QC Attachment drop mag from, would drop from shell port if not defined
+SWEP.DropMagazinePos = Vector(-40, 30, -10) -- offsets
+SWEP.DropMagazineAng = Angle(0, 0, 0)
+SWEP.DropMagazineVelocity = Vector(0, 0, 0) -- Put something here if your anim throws the mag with force
 
 -------------------------- FIREMODES
 
@@ -188,9 +188,9 @@ SWEP.Firemodes = {
 
 -------------------------- RECOIL
 
-SWEP.Recoil = 1
-SWEP.RecoilSide = 0.5
-SWEP.RecoilUp = 0.5
+SWEP.Recoil = 1.5
+SWEP.RecoilSide = -0.4
+SWEP.RecoilUp = 0.9
 
 SWEP.RecoilRandomUp = 0
 SWEP.RecoilRandomSide = 0
@@ -205,7 +205,7 @@ SWEP.Spread = math.rad(1.3 / 37.5)
 SWEP.SpreadMultRecoil = 1.2
 
 SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(150 / 37.5)
+SWEP.SpreadAddHipFire = math.rad(250 / 37.5)
 SWEP.SpreadAddMove = math.rad(100 / 37.5)
 SWEP.SpreadAddMidAir = 0.1
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
@@ -969,7 +969,7 @@ SWEP.Animations = {
         Source = "reload_empty",
         Time = 3.5,
         MinProgress = 0.5,
-        DropMagAt = 0.6,
+        DropMagAt = 1,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.DMR14_magout", t = 0.3 },

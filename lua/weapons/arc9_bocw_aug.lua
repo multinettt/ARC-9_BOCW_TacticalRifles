@@ -158,10 +158,10 @@ SWEP.DropMagazineSounds = {} -- Table of sounds a dropped magazine should play.
 SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
 SWEP.DropMagazineSkin = 0 -- Model skin of mag.
 SWEP.DropMagazineTime = 2
-SWEP.DropMagazineQCA = nil -- QC Attachment drop mag from, would drop from shell port if not defined
-SWEP.DropMagazinePos = Vector(-40, -30, 5) -- offsets
-SWEP.DropMagazineAng = Angle(0, -90, 0)
-SWEP.DropMagazineVelocity = Vector(-200, -200, 0) -- Put something here if your anim throws the mag with force
+SWEP.DropMagazineQCA = 3 -- QC Attachment drop mag from, would drop from shell port if not defined
+SWEP.DropMagazinePos = Vector(-40, -40, 70) -- offsets
+SWEP.DropMagazineAng = Angle(0, 0, 0)
+SWEP.DropMagazineVelocity = Vector(0, 0, 0) -- Put something here if your anim throws the mag with force
 
 -------------------------- FIREMODES
 
@@ -188,7 +188,7 @@ SWEP.Firemodes = {
 -------------------------- RECOIL
 
 SWEP.Recoil = 1
-SWEP.RecoilSide = 0.5
+SWEP.RecoilSide = 0.7
 SWEP.RecoilUp = 1.5
 
 SWEP.RecoilRandomUp = 0
@@ -197,14 +197,14 @@ SWEP.RecoilRandomSide = 0
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.1 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 4
+SWEP.RecoilAutoControl = 3
 SWEP.RecoilKick = 2
 
 SWEP.Spread = math.rad(1.3 / 37.5)
 SWEP.SpreadMultRecoil = 1.2
 
 SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(150 / 37.5)
+SWEP.SpreadAddHipFire = math.rad(250 / 37.5)
 SWEP.SpreadAddMove = math.rad(100 / 37.5)
 SWEP.SpreadAddMidAir = 0.1
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
@@ -927,7 +927,7 @@ SWEP.Animations = {
     ["reload_empty"] = {
         Source = "reload_empty",
         MinProgress = 0.6,
-        DropMagAt = 0.6,
+        DropMagAt = 1,
         MagSwapTime = 1,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
@@ -1007,7 +1007,7 @@ SWEP.Animations = {
         Source = "reload_ext_empty",
         MinProgress = 0.6,
         MagSwapTime = 1,
-        DropMagAt = 0.6,
+        --DropMagAt = 0.6,
         EventTable = {
             { s = "ARC9_BOCW.AUG_reload_start", t = 0 },
             { s = "ARC9_BOCW.AUG_reload_ext_magout", t = 0.4 },
