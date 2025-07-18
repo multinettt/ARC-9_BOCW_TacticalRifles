@@ -520,6 +520,9 @@ SWEP.AttachmentElements = {
             [2] = {
                 Pos = Vector(-5.21, 0, 0),
             },
+            [4] = {
+                Pos = Vector(15.22, 0, 3.42),
+            },
         },
     },
     ["barrel_cavalry"] = {
@@ -530,6 +533,9 @@ SWEP.AttachmentElements = {
             [2] = {
                 Pos = Vector(-5.51, 0, 0),
             },
+            [4] = {
+                Pos = Vector(15.26, 0, 3.42),
+            },
         },
     },
     ["barrel_striketeam"] = {
@@ -539,6 +545,9 @@ SWEP.AttachmentElements = {
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.51, 0, 0),
+            },
+            [4] = {
+                Pos = Vector(15.22, 0, 3.42),
             },
         },
     },
@@ -559,7 +568,10 @@ SWEP.AttachmentElements = {
         AttPosMods = {
             [2] = {
                 Pos = Vector(-5.21, 0, 0),
-            }
+            },
+            [4] = {
+                Pos = Vector(15.26, 0, 3.42),
+            },
         },
     },
     ["barrel_taskforce"] = {
@@ -643,6 +655,7 @@ SWEP.Attachments = {
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_m16_muzzle", "bocw_tr_muzzle_west556"},
         Installed = "bocw_m16_muzzle_base",
+        Integral = "bocw_m16_muzzle_base",
     },
     {
         PrintName = "BARREL",
@@ -655,10 +668,10 @@ SWEP.Attachments = {
     {
         PrintName = "BODY",
         Bone = "tag_weapon",
-        Pos = Vector(17.5, 0.8, 2),
-        Ang = Angle(0, 0, -90),
+        Pos = Vector(20.46, 0, 3.42),
+        Ang = Angle(0, 0, 0),
         Icon_Offset = Vector(0, 0, 0),
-        Category = {"bocw_body_mount_lasermixbody", "bocw_body_mount_flashlight"},
+        Category = {"bocw_m16_body"},
     },
     {
         PrintName = "UNDRBARREL",

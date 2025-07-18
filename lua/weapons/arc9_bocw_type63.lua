@@ -634,6 +634,7 @@ SWEP.Attachments = {
         Icon_Offset = Vector(0, 0, 0),
         Category = {"bocw_type63_muzzle", "bocw_tr_muzzle_east762"},
         Installed = "bocw_type63_muzzle_base",
+        Integral = "bocw_type63_muzzle_base",
     },
     {
         PrintName = "BARREL",
@@ -748,7 +749,7 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
     local elements = swep:GetElements()
 
     if anim == "enter_inspect" then
-        if elements["bocw_underbarrel_east"] then
+        if elements["bocw_tr_underbarrel_east"] then
             return anim .. "_grip"
         end
     end
@@ -914,6 +915,7 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload",
+        Time = 2.3,
         NoMagSwap = true,
         MinProgress = 0.65,
         EventTable = {
@@ -951,6 +953,7 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload_empty",
+        Time = 3.25,
         MinProgress = 0.5,
         DropMagAt = 0.6,
         MagSwapTime = 1,
@@ -991,7 +994,7 @@ SWEP.Animations = {
     },
     ["reload_ext"] = {
         Source = "reload_ext",
-        Mult = 1,
+        Time = 2.3,
         MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
@@ -1028,6 +1031,7 @@ SWEP.Animations = {
     },
     ["reload_empty_ext"] = {
         Source = "reload_ext_empty",
+        Time = 3.25,
         MinProgress = 0.4,
         MagSwapTime = 1,
         DropMagAt = 0.6,
@@ -1068,6 +1072,7 @@ SWEP.Animations = {
     },
     ["reload_dual"] = {
         Source = "reload_dual",
+        Time = 2.3,
         MinProgress = 0.6,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
@@ -1101,6 +1106,7 @@ SWEP.Animations = {
     },
     ["1_reload_dual"] = {
         Source = "reload_dual2",
+        Time = 2.3,
         MinProgress = 0.65,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
@@ -1134,6 +1140,7 @@ SWEP.Animations = {
     },
     ["reload_empty_dual"] = {
         Source = "reload_dual_empty",
+        Time = 3.25,
         MinProgress = 0.5,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
@@ -1169,6 +1176,7 @@ SWEP.Animations = {
     },
     ["1_reload_empty_dual"] = {
         Source = "reload_dual2_empty",
+        Time = 3.25,
         MinProgress = 0.5,
         DropMagAt = 1.1,
         EventTable = {
@@ -1205,7 +1213,7 @@ SWEP.Animations = {
     },
     ["reload_mix"] = {
         Source = "reload_mix",
-        Mult = 1,
+        Time = 2.3,
         MinProgress = 0.58,
         EventTable = {
             { s = "ARC9_BOCW.Type63_reload_start", t = 0 },
@@ -1238,7 +1246,7 @@ SWEP.Animations = {
     },
     ["reload_empty_mix"] = {
         Source = "reload_mix_empty",
-        Mult = 1,
+        Time = 3.25,
         MinProgress = 0.4,
         MagSwapTime = 1,
         EventTable = {

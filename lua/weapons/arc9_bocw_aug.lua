@@ -882,6 +882,10 @@ SWEP.Animations = {
         Source = {"fire"},
         EjectAt = 0,
     },
+    ["fire_sights"] = {
+        Source = {"fire"},
+        EjectAt = 0,
+    },
     ["reload"] = {
         Source = "reload",
         NoMagSwap = true,

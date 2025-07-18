@@ -2691,7 +2691,7 @@ ARC9.LoadAttachment(ATT, "bocw_type63_muzzle_base")
 ATT = {}
 
 ATT.PrintName = "M16 Muzzle Device"
-ATT.CompactName = "M16 MUZZ"
+ATT.CompactName = "M16 MUZZLE"
 ATT.Icon = Material("entities/bocw_atts/muzzles/m16_muzzle.png", "mips smooth")
 ATT.Description = [[Default M16 muzzle device.]]
 
@@ -2711,6 +2711,30 @@ ATT.MuzzleDevice = true
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_m16_muzzle_base")
+
+ATT = {}
+
+ATT.PrintName = "M16A1 Muzzle Device"
+ATT.CompactName = "A1 MUZZLE"
+ATT.Icon = Material("entities/bocw_atts/muzzles/m16_muzzle.png", "mips smooth")
+ATT.Description = [[Default M16A1 muzzle device.]]
+
+ATT.SortOrder = -9
+
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_muzzle_a1.mdl"
+
+ATT.Category = {"bocw_m16_muzzle"}
+
+ATT.ModelOffset = Vector(0.19, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.MuzzleParticleOverride = "muzzleflash_3"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+
+ARC9.LoadAttachment(ATT, "bocw_m16_muzzle_base_a1")
 
 ATT = {}
 
@@ -2912,8 +2936,8 @@ ARC9.LoadAttachment(ATT, "bocw_m16_receiver_a1")
 ATT = {}
 
 ATT.PrintName = "Flashlight Adapter"
-ATT.CompactName = "FLSHLGHT"
-ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
+ATT.CompactName = "FLASH ADAPT"
+ATT.Icon = Material("entities/bocw_atts/mounts/flashlight.png", "mips smooth")
 ATT.Description = [[Addition to the tactical rail mount of the DMR 14 in order to attach flashlights.]]
 
 ATT.SortOrder = 0
@@ -2973,3 +2997,69 @@ ATT.ActivateElements = {"foregripgone"}
 ATT.MenuCategory = "ARC9 - BOCW Attachments"
 
 ARC9.LoadAttachment(ATT, "bocw_aug_underbarrel")
+
+--
+
+ATT = {}
+
+ATT.PrintName = "Laser Mount"
+ATT.CompactName = "LASER MNT"
+ATT.Icon = Material("entities/bocw_atts/mounts/lasermixbody.png", "mips smooth")
+ATT.Description = [[Barrel installed mount for laser body attachments on the M16.]]
+ATT.SortOrder = 0
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+ATT.Free = true
+
+ATT.Category = {"bocw_m16_body"}
+
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_mount_body.mdl"
+ATT.ModelBodygroups = "00"
+
+ATT.Scale = 1
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Attachments = {
+    {
+        PrintName = "BODY",
+        Bone = "tag_weapon",
+        Pos = Vector(-0.5, 0, 1.35),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(-0.5, 0, -0.3),
+        Category = {"bocw_xm4_body"},
+    }
+}
+
+ARC9.LoadAttachment(ATT, "bocw_m16_mount_lasermix")
+
+ATT = {}
+
+ATT.PrintName = "Flashlight Mount"
+ATT.CompactName = "FLASH MNT"
+ATT.Icon = Material("entities/bocw_atts/mounts/flashlight.png", "mips smooth")
+ATT.Description = [[Barrel installed mount for flashlights on the M16.]]
+ATT.SortOrder = 1
+ATT.MenuCategory = "ARC9 - BOCW Attachments"
+ATT.Free = true
+
+ATT.Category = {"bocw_m16_body"}
+
+ATT.Model = "models/weapons/arc9/atts/bocw_m16_mount_body.mdl"
+ATT.ModelBodygroups = "01"
+
+ATT.Scale = 1
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Attachments = {
+    {
+        PrintName = "BODY",
+        Bone = "tag_weapon",
+        Pos = Vector(0, 0, 1.65),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
+        Category = {"bocw_xm4_body_flash"},
+    }
+}
+
+ARC9.LoadAttachment(ATT, "bocw_m16_mount_flashlight")
