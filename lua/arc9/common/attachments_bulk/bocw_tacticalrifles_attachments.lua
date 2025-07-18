@@ -2667,7 +2667,7 @@ ARC9.LoadAttachment(ATT, "bocw_dmr14_stock_raider")
 ATT = {}
 
 ATT.PrintName = "Type 63 Muzzle Brake"
-ATT.CompactName = "T63 MUZZ"
+ATT.CompactName = "T63 MUZZLE"
 ATT.Icon = Material("entities/bocw_atts/muzzles/type63_muzzle.png", "mips smooth")
 ATT.Description = [[7.62x39mm Muzzle Brake]]
 
