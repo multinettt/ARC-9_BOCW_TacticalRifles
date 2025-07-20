@@ -2814,7 +2814,7 @@ ATT = {}
 
 ATT.PrintName = "Swarovski Scope 1.5x"
 ATT.CompactName = "OPTIC"
-ATT.Icon = Material("entities/acwatt_bocw.png", "mips smooth")
+ATT.Icon = Material("entities/bocw_atts/optics/aug_optic.png", "mips smooth")
 ATT.Description = [[Original AUG scope assembly.]]
 
 ATT.SortOrder = -10
