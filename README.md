@@ -4,6 +4,8 @@
 
 Here we go again. Tactical rifles went pretty much under my radar so this should be good. Four weapons in which one is very popular around here.
 
+## [ARC9 BOCW Tactical Rifles on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3528712257)
+
 ## You need to have [Shared Content](https://github.com/multinettt/ARC-9_BOCW_Shared_Content) in order to avoid missing textures, materials and sounds.
 
 ## [BOCW Attachments](https://github.com/multinettt/ARC-9_BOCW_Attachments)
